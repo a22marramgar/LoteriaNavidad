@@ -1,12 +1,19 @@
 # LoteriaNavidad
+
 50 series de 100.000 billetes cada una
 200e cada billete, se divide en decimos a 20e
+
 Premio:
 1º: 2.000.000 euros por serie. (un premio-5 numeros)
+
 2º: 750.000 euros por serie. (un premio-5 numeros)
+
 3º: 250.000 euros por serie. (un premio-5 numeros)
+
 20 premios de 3.500 (dos extracciones - 4 numeros)
+
 1.400 premios de 1.000 (14 extracciones - 3 cifras)
+
 5.000 premios de 400 (cinco extracciones - 2 cifras)
 
 2 Aproximaciones de 6.100€ cada una, para los números anterior y posterior al del que obtenga el
