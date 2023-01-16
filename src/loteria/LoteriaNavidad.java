@@ -1,6 +1,7 @@
 package loteria;
 
 import java.util.Scanner;
+import static utils.Utils.*;
 
 public class LoteriaNavidad {
  static Scanner scan = new Scanner(System.in);
