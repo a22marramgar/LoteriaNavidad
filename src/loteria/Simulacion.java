@@ -50,7 +50,7 @@ public class Simulacion {
             else if(contador6==0){
                 pozo.remove(valor);
             }
-            return 
+            return ;
 	}
 
 }
