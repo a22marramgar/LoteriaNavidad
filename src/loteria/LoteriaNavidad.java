@@ -18,7 +18,7 @@ public class LoteriaNavidad {
             System.out.println("3.Sortir");
             opcio = comprobarEnter();
 
-            switch (opcio) {
+            switch (opcio)  {
 
                 case 1:
                     creado = Simulacion.IniciarSimulacion();
