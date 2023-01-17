@@ -1,19 +1,19 @@
 package loteria;
 
 public class Premio {
-	private String _numero;
-	private String _premio;
+	private Integer _numero;
+	private Integer _premio;
 	
-	public Premio(String numero, String premio) {
+	public Premio(Integer numero, Integer premio) {
 		this._numero = numero;
 		this._premio = premio;
 	}
 	
-	public String getNumero() {
+	public Integer getNumero() {
 		return this._numero;
 	}
 
-	public String getPremio() {
+	public Integer getPremio() {
 		return this._premio;
 	}
 
