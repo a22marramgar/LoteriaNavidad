@@ -28,15 +28,16 @@ public class Simulacion {
         int contador4 = 2;//cantidad de premios - cuartos
         int contador5 = 8;//cantidad de premios - quintos
         int contador6 = 1794;//cantidad de premios - pedreas
+        int contador7 = 98192;
         ArrayList<Premio> Premiados = new ArrayList<>();
         int recorredor = 0;
         boolean corte4 = false;
         boolean corte5 = false;
         boolean corte6 = false;
+        boolean corte7 = false;
+        System.out.println(numeros.size());
         while (pozo.size() >= 1) {
             int valor = ran.nextInt(pozo.size());
-            System.out.println(pozo.get(valor));
-
             Premio Prem = new Premio(pozo.get(valor), numeros.get(recorredor));
             Premiados.add(Prem);
             switch (pozo.get(valor)) {
@@ -48,6 +49,9 @@ public class Simulacion {
                     break;
                 case 1000:
                     contador6--;
+                    break;
+                case 0:
+                    contador7--;
                     break;
                 default:
                     break;
@@ -64,6 +68,9 @@ public class Simulacion {
             } else if (contador6 == 0 && !corte6) {
                 pozo.remove(valor);
                 corte6 = true;
+            } else if (contador7 == 0 && !corte7) {
+                pozo.remove(valor);
+                corte7 = true;
             }
             recorredor++;
 
