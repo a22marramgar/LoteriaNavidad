@@ -6,11 +6,11 @@ import java.util.Collections;
 
 public class Simulacion {
 
-    public boolean IniciarSimulacion() {
+    public static boolean IniciarSimulacion() {
         return false;
     }
 
-    public ArrayList<Premio> GetPremios() {
+    public static ArrayList<Premio> getPremios() {
         Random ran = new Random();
         ArrayList<Integer> pozo = new ArrayList<>();//Lista con los premios
         pozo.add(4000000);//1 - un premio

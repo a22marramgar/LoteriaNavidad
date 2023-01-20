@@ -34,7 +34,7 @@ public class LoteriaNavidad {
                     if (creado = true) {
                         System.out.println("Introdueix el numero a comprobar");
                         int numero=scan.nextInt();
-                        System.out.println(busquedapremios.comprobar(numero,Simulacion.getPremios));
+                        System.out.println(BusquedaPremios.Comprobar(numero,Simulacion.getPremios()));
                     } else {
                         System.out.println("Porfavor, inicia una nueva simulacion");
                     }
