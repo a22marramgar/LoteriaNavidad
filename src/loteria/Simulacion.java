@@ -35,7 +35,6 @@ public class Simulacion {
         boolean corte5 = false;
         boolean corte6 = false;
         boolean corte7 = false;
-        System.out.println(numeros.size());
         while (pozo.size() >= 1) {
             int valor = ran.nextInt(pozo.size());
             Premio Prem = new Premio(pozo.get(valor), numeros.get(recorredor));
