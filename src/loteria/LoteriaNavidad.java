@@ -35,7 +35,7 @@ public class LoteriaNavidad {
                                         
                     if (creado) {                        
                         System.out.println("Introdueix el numero a comprobar");
-                        int numero=scan.nextInt();
+                        String numero=scan.nextLine();
                         System.out.println("Introdueix el preu que has pagat");
                         int precio=scan.nextInt();
                         System.out.println(BusquedaPremios.Comprobar(numero,sim.GetPremios(),precio));
