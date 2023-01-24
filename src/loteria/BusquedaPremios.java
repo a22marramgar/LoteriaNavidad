@@ -2,8 +2,6 @@ package loteria;
 
 import java.util.ArrayList;
 
-import pruebas.Premio;
-
 public class BusquedaPremios {
 
 	public static String Comprobar(int numero, ArrayList<Premio> Premiados, double importe) {
