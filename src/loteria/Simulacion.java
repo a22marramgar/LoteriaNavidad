@@ -19,7 +19,7 @@ public class Simulacion {
         pozo.add(1000);//6 - 1794 premios
 
         ArrayList<Integer> numeros = new ArrayList<>();//Lista con los numeros
-        for (int i = 0; i < 1807 + 1; i++) {
+        for (int i = 0; i <= 99999; i++) {
             numeros.add(i);
         }
         Collections.shuffle(numeros);//Se mezclan los numeros
