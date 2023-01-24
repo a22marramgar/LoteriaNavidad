@@ -8,7 +8,6 @@ public class Simulacion {
     private ArrayList<Premio> _Lista;
 
     public boolean IniciarSimulacion() {
-
         Random ran = new Random();
         System.out.println("Iniciando simulación...");
         ArrayList<Integer> pozo = new ArrayList<>();//Lista con los premios
@@ -20,7 +19,7 @@ public class Simulacion {
         pozo.add(1000);//6 - 1794 premios
 
         ArrayList<Integer> numeros = new ArrayList<>();//Lista con los numeros
-        for (int i = 1; i < 1807 + 1; i++) {
+        for (int i = 0; i < 1807 + 1; i++) {
             numeros.add(i);
         }
         Collections.shuffle(numeros);//Se mezclan los numeros
@@ -32,6 +31,7 @@ public class Simulacion {
         boolean corte4 = false;
         boolean corte5 = false;
         boolean corte6 = false;
+        //boolean corte7 = false;
         while (pozo.size() >= 1) {
             int valor = ran.nextInt(pozo.size());
             Premio Prem = new Premio( numeros.get(recorredor),pozo.get(valor));
