@@ -28,7 +28,7 @@ public class Simulacion {
 
         ArrayList<String> numeros = new ArrayList<>();//Lista con los numeros
         for (int i = 0; i <= 99999; i++) {
-            numeros.add(Integer.toString(i));
+            numeros.add(String.format("%05d", i));
         }
         Collections.shuffle(numeros);//Se mezclan los numeros
         int contador4 = 2;//cantidad de premios - cuartos
