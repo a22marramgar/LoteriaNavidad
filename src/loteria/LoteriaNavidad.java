@@ -3,6 +3,7 @@
 package loteria;
 
 import java.util.Scanner;
+import static utils.UtilsBueno.*;
 import static utils.Utils.*;
 
 public class LoteriaNavidad {
@@ -35,9 +36,10 @@ public class LoteriaNavidad {
                                         
                     if (creado) {                        
                         System.out.println("Introdueix el numero a comprobar");
-                        String numero=scan.nextLine();
+                        int numero1 =pedirnum();
+                        String numero = Integer.toString(numero1);
                         System.out.println("Introdueix el preu que has pagat");
-                        int precio=scan.nextInt();
+                        int precio=pedirnum();
                         System.out.println(BusquedaPremios.Comprobar(numero,sim.GetPremios(),precio));
                     } else {
                         System.out.println("Porfavor, inicia una nueva simulacion");
