@@ -9,7 +9,7 @@ public class LoteriaNavidad {
  static Scanner scan = new Scanner(System.in);
 
     public static void main(String[] args) {
-
+        Simulacion sim=new Simulacion();
         int opcio = 0;
         boolean creado = false;
         
@@ -22,8 +22,8 @@ public class LoteriaNavidad {
 
             switch (opcio)  {
 
-                case 1:
-                    creado = Simulacion.IniciarSimulacion();
+                case 1:                    
+                    creado = sim.IniciarSimulacion();
                     if (creado) {
                         System.out.println("Simulacion creada");
                     } else {
@@ -38,7 +38,7 @@ public class LoteriaNavidad {
                         int numero=scan.nextInt();
                         System.out.println("Introdueix el preu que has pagat");
                         int precio=scan.nextInt();
-                        System.out.println(BusquedaPremios.Comprobar(numero,Simulacion.getPremios()));
+                        System.out.println(BusquedaPremios.Comprobar(numero,sim.GetPremios(),precio));
                     } else {
                         System.out.println("Porfavor, inicia una nueva simulacion");
                     }
