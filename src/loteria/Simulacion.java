@@ -6,21 +6,29 @@ import java.util.Collections;
 
 public class Simulacion {
     private ArrayList<Premio> _Lista;
+    final int PRIMERPREMIO = 4000000;
+    final int SEGUNDOPREMIO =1200000;
+    final int TERCERPREMIO=500000;
+    final int CUARTOS=200000;
+    final int QUINTOS=60000;
+    final int PEDREAS=1000;
 
     public boolean IniciarSimulacion() {
         Random ran = new Random();
+
+                                
         System.out.println("Iniciando simulación...");
         ArrayList<Integer> pozo = new ArrayList<>();//Lista con los premios
-        pozo.add(4000000);//1 - un premio
-        pozo.add(1200000);//2 - un premio
-        pozo.add(500000);//3 - un premio
-        pozo.add(200000);//4 - dos premios
-        pozo.add(60000);//5 - ocho premios
-        pozo.add(1000);//6 - 1794 premios
+        pozo.add(PRIMERPREMIO);//1 - un premio
+        pozo.add(SEGUNDOPREMIO);//2 - un premio
+        pozo.add(TERCERPREMIO);//3 - un premio
+        pozo.add(CUARTOS);//4 - dos premios
+        pozo.add(QUINTOS);//5 - ocho premios
+        pozo.add(PEDREAS);//6 - 1794 premios
 
-        ArrayList<Integer> numeros = new ArrayList<>();//Lista con los numeros
+        ArrayList<String> numeros = new ArrayList<>();//Lista con los numeros
         for (int i = 0; i <= 99999; i++) {
-            numeros.add(i);
+            numeros.add(Integer.toString(i));
         }
         Collections.shuffle(numeros);//Se mezclan los numeros
         int contador4 = 2;//cantidad de premios - cuartos

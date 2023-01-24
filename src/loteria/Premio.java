@@ -1,15 +1,15 @@
 package loteria;
 
 public class Premio {
-	private Integer _numero;
+	private String _numero;
 	private Integer _premio;
 	
-	public Premio(Integer numero, Integer premio) {
+	public Premio(String numero, Integer premio) {
 		this._numero = numero;
 		this._premio = premio;
 	}
 	
-	public Integer getNumero() {
+	public String getNumero() {
 		return this._numero;
 	}
 
