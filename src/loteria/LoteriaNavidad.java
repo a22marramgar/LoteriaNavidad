@@ -1,3 +1,5 @@
+
+
 package loteria;
 
 import java.util.Scanner;
@@ -22,7 +24,7 @@ public class LoteriaNavidad {
 
                 case 1:
                     creado = Simulacion.IniciarSimulacion();
-                    if (creado = true) {
+                    if (creado) {
                         System.out.println("Simulacion creada");
                     } else {
                         System.out.println("No se ha podido crear la simulacion");
@@ -30,10 +32,12 @@ public class LoteriaNavidad {
                     break;
 
                 case 2:
-                    
-                    if (creado = true) {
+                                        
+                    if (creado) {                        
                         System.out.println("Introdueix el numero a comprobar");
                         int numero=scan.nextInt();
+                        System.out.println("Introdueix el preu que has pagat");
+                        int precio=scan.nextInt();
                         System.out.println(BusquedaPremios.Comprobar(numero,Simulacion.getPremios()));
                     } else {
                         System.out.println("Porfavor, inicia una nueva simulacion");
