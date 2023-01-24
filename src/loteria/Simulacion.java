@@ -6,12 +6,12 @@ import java.util.Collections;
 
 public class Simulacion {
     private ArrayList<Premio> _Lista;
-    public final int PRIMERPREMIO = 4000000;
-    public final int SEGUNDOPREMIO =1200000;
-    public final int TERCERPREMIO=500000;
-    public final int CUARTOS=200000;
-    public final int QUINTOS=60000;
-    public final int PEDREAS=1000;
+    public static final int PRIMERPREMIO = 4000000;
+    public static final int SEGUNDOPREMIO =1200000;
+    public static final int TERCERPREMIO=500000;
+    public static final int CUARTOS=200000;
+    public static final int QUINTOS=60000;
+    public static final int PEDREAS=1000;
 
     public boolean IniciarSimulacion() {
         Random ran = new Random();
