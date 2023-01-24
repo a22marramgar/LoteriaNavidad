@@ -63,7 +63,6 @@ public class Simulacion {
                 corte6 = true;
             }
             recorredor++;
-
         }
         System.out.println("Finalizado.");
         return true;
