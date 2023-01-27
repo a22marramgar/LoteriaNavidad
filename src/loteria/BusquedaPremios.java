@@ -8,6 +8,8 @@ public class BusquedaPremios {
     static final int APROX_SEGON_PREMI=12500;
     static final int APROX_TERCER_PREMI=9600;
     static final int PREMI_CENTENAS=1000;
+    static final int PREMI_2CIFRAS_ULTIMAS=1000;
+    static final int PREMI_ULTIMA_CIFRA=200;
     
 public static String Comprobar(String numero, ArrayList<Premio> Premiados, double importe) {
 	int suma = ComprobarPremio(numero, Premiados);
@@ -147,6 +149,63 @@ public static int ComprobarUltimas(String numero, ArrayList<Premio> Premiados) {
 
 	return 0;
 
+}
+
+public static int Last2Cifras1rPremi(String numero, ArrayList<Premio> Premiados){
+    int premio=0;
+            for(Premio p : Premiados){
+                if(p.getPremio() == Simulacion.PRIMERPREMIO){
+                    String ultimas_2_cifras_premi=p.getNumero().substring(3, 5);
+                    String ultimas_2_cifras_numero=numero.substring(3, 5);
+                    if(ultimas_2_cifras_premi.equals(ultimas_2_cifras_numero)){
+                        premio=PREMI_2CIFRAS_ULTIMAS;
+                    }
+                }
+            }
+            return premio;
+}
+
+public static int Last2Cifras2nPremi(String numero, ArrayList<Premio> Premiados){
+    int premio=0;
+            for(Premio p : Premiados){
+                if(p.getPremio() == Simulacion.SEGUNDOPREMIO){
+                    String ultimas_2_cifras_premi=p.getNumero().substring(3, 5);
+                    String ultimas_2_cifras_numero=numero.substring(3, 5);
+                    if(ultimas_2_cifras_premi.equals(ultimas_2_cifras_numero)){
+                        premio=PREMI_2CIFRAS_ULTIMAS;
+                    }
+                }
+            }
+            return premio;
+}
+
+public static int Last2Cifras3rPremi(String numero, ArrayList<Premio> Premiados){
+    int premio=0;
+            for(Premio p : Premiados){
+                if(p.getPremio() == Simulacion.TERCERPREMIO){
+                    String ultimas_2_cifras_premi=p.getNumero().substring(3, 5);
+                    String ultimas_2_cifras_numero=numero.substring(3, 5);
+                    if(ultimas_2_cifras_premi.equals(ultimas_2_cifras_numero)){
+                        premio=PREMI_2CIFRAS_ULTIMAS;
+                    }
+                }
+            }
+            return premio;
+}
+
+public static int UltimaCifra1rPremi(String numero, ArrayList<Premio> Premiados){
+    
+    int premio=0;
+            for(Premio p : Premiados){
+                if(p.getPremio() == Simulacion.PRIMERPREMIO){
+                    char ultima_cifra_premi=p.getNumero().charAt(4);
+                    char ultima_cifra_numero=numero.charAt(4);
+                    if(ultima_cifra_premi==ultima_cifra_numero){
+                        premio=PREMI_ULTIMA_CIFRA;
+                    }
+                }
+            }
+            return premio;
 }
 
 public static double CalcularTotal(int suma, double importe) {
