@@ -113,7 +113,7 @@ public class BusquedaPremios {
     public static int Centenas2nPremi(String numero, ArrayList<Premio> Premiados) {
         int premio = 0;
         for (Premio p : Premiados) {
-            if (p.getPremio() == Simulacion.PRIMERPREMIO && !numero.equals(p.getNumero())) {
+            if (p.getPremio() == Simulacion.SEGUNDOPREMIO && !numero.equals(p.getNumero())) {
                 String centenar_premi = p.getNumero().substring(0, 3);
                 String centenar_numero = numero.substring(0, 3);
                 if (centenar_premi.equals(centenar_numero)) {
@@ -127,7 +127,7 @@ public class BusquedaPremios {
     public static int Centenas3rPremi(String numero, ArrayList<Premio> Premiados) {
         int premio = 0;
         for (Premio p : Premiados) {
-            if (p.getPremio() == Simulacion.PRIMERPREMIO && !numero.equals(p.getNumero())) {
+            if (p.getPremio() == Simulacion.TERCERPREMIO && !numero.equals(p.getNumero())) {
                 String centenar_premi = p.getNumero().substring(0, 3);
                 String centenar_numero = numero.substring(0, 3);
                 if (centenar_premi.equals(centenar_numero)) {
@@ -141,7 +141,7 @@ public class BusquedaPremios {
     public static int Centenas4rtPremi(String numero, ArrayList<Premio> Premiados) {
         int premio = 0;
         for (Premio p : Premiados) {
-            if (p.getPremio() == Simulacion.PRIMERPREMIO && !numero.equals(p.getNumero())) {
+            if (p.getPremio() == Simulacion.CUARTOS && !numero.equals(p.getNumero())) {
                 String centenar_premi = p.getNumero().substring(0, 3);
                 String centenar_numero = numero.substring(0, 3);
                 if (centenar_premi.equals(centenar_numero)) {
