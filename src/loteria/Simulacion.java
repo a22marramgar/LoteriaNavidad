@@ -5,10 +5,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class Simulacion {
-
-    static ArrayList<Premio> getPremios() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+   
     private ArrayList<Premio> _Lista;
     public static final int PRIMERPREMIO = 4000000;
     public static final int SEGUNDOPREMIO = 1200000;
@@ -20,7 +17,7 @@ public class Simulacion {
     public boolean IniciarSimulacion() {
         Random ran = new Random();
 
-        System.out.println("Iniciando simulación...");
+        System.out.println("Iniciant simulacio...");
         ArrayList<Integer> pozo = new ArrayList<>();//Lista con los premios
         pozo.add(PRIMERPREMIO);//1 - un premio
         pozo.add(SEGUNDOPREMIO);//2 - un premio
@@ -75,7 +72,7 @@ public class Simulacion {
             }
             recorredor++;
         }
-        System.out.println("Finalizado.");
+        System.out.println("Finalitzat.");
         return true;
     }
 
@@ -85,53 +82,50 @@ public class Simulacion {
     }
 
     public void Mostrar() {
-        
+
         int contador_cuartos = 2;
         int contador_quintos = 8;
-        
 
         for (Premio p : this._Lista) {
             if (p.getPremio() == PRIMERPREMIO) {
-                System.out.println("Primer premio: (" + p.getPremio() + "): " + p.getNumero());
+                System.out.println("Primer premi: (" + p.getPremio() + "): " + p.getNumero());
             }
 
         }
         for (Premio p : this._Lista) {
             if (p.getPremio() == SEGUNDOPREMIO) {
-                System.out.println("Segundo premio: (" + p.getPremio() + "): " + p.getNumero());
+                System.out.println("Segon premi: (" + p.getPremio() + "): " + p.getNumero());
             }
 
         }
         for (Premio p : this._Lista) {
             if (p.getPremio() == TERCERPREMIO) {
-                System.out.println("Tercer premio: (" + p.getPremio() + "): " + p.getNumero());
+                System.out.println("Tercer premi: (" + p.getPremio() + "): " + p.getNumero());
             }
 
         }
         for (Premio p : this._Lista) {
-            if (p.getPremio() == CUARTOS ) {
-                if(contador_cuartos==2){
-                System.out.print("Cuartos premiados: (" + p.getPremio() + "): " + p.getNumero());
-                contador_cuartos--;
+            if (p.getPremio() == CUARTOS) {
+                if (contador_cuartos == 2) {
+                    System.out.print("Quarts premis: (" + p.getPremio() + "): " + p.getNumero());
+                    contador_cuartos--;
+                } else {
+                    System.out.println(", " + p.getNumero());
                 }
-                else {
-                    System.out.println(", "+p.getNumero());
-                
-                }
-                
-                
-                
             }
 
         }
         for (Premio p : this._Lista) {
             if (p.getPremio() == QUINTOS) {
-                System.out.println("Quintos premiados: (" + p.getPremio() + "): " + p.getNumero());
+                if (contador_quintos == 8) {
+                    System.out.print("Cinquens premis: (" + p.getPremio() + "): " + p.getNumero());
+                    contador_quintos--;
+                } else {
+                    System.out.println(", " + p.getNumero());
+                }
             }
 
         }
-        
-
     }
 
 }
