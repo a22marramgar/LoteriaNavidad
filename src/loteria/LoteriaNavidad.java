@@ -14,11 +14,12 @@ public class LoteriaNavidad {
         int opcio = 0;
         boolean creado = false;
         
-        while (opcio != 3) {
+        while (opcio != 4) {
             System.out.println("Que vols fer? Escull una opcio");
             System.out.println("1.Inicia simulacio");
             System.out.println("2.Buscar el premi");
-            System.out.println("3.Sortir");
+            System.out.println("3.Veure llista de premis");
+            System.out.println("4.Sortir");
             opcio = comprobarEnter();
 
             switch (opcio)  {
@@ -47,6 +48,8 @@ public class LoteriaNavidad {
                     }
 
                     break;
+                case 3:
+                    
 
             }
         }
