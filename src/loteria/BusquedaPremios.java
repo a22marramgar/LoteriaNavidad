@@ -11,14 +11,14 @@ public class BusquedaPremios {
     static final int PREMI_2CIFRAS_ULTIMAS = 1000;
     static final int PREMI_ULTIMA_CIFRA = 200;
 
-    public static String Comprobar(String numero, ArrayList<Premio> Premiados, double importe) {
+    public static double Comprobar(String numero, ArrayList<Premio> Premiados, double importe) {
         int suma = ComprobarPremio(numero, Premiados);
         suma += ComprobarAproximaciones(numero, Premiados);
         suma += ComprobarCentenas(numero, Premiados);
         suma += ComprobarUltimas(numero, Premiados);
         double total = CalcularTotal(suma, importe);
 
-        return Double.toString(total);
+        return total;
     }
 
     public static int ComprobarPremio(String numero, ArrayList<Premio> Premiados) {
