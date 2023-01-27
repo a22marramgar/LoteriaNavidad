@@ -40,7 +40,7 @@ public class LoteriaNavidad {
                         String num = String.format("%05d", numero1);
                         System.out.println("Introdueix el preu que has pagat");
                         int precio = pedirnum();
-                        System.out.println(BusquedaPremios.Comprobar(num, sim.GetPremios(), precio));
+                        System.out.println(BusquedaPremios.Comprobar(num, sim.GetPremios(), precio)+"€");
                     } else {
                         System.out.println("Si us plau, inicia una nova simulacio");
                     }
