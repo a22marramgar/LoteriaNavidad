@@ -7,6 +7,7 @@ public class BusquedaPremios {
     static final int APROX_PRIMER_PREMI=20000;
     static final int APROX_SEGON_PREMI=12500;
     static final int APROX_TERCER_PREMI=9600;
+    static final int PREMI_CENTENAS=1000;
     
 public static String Comprobar(String numero, ArrayList<Premio> Premiados, double importe) {
 	int suma = ComprobarPremio(numero, Premiados);
@@ -84,6 +85,58 @@ public static int ComprobarCentenas(String numero, ArrayList<Premio> Premiados) 
 
 	return 0;
 
+}
+
+public static int Centenas1rPremi(String numero, ArrayList<Premio> Premiados){
+            int premio=0;
+            for(Premio p : Premiados){
+                if(p.getPremio() == Simulacion.PRIMERPREMIO){
+                    String centenar=p.getNumero().substring(0, 3);
+                    if(numero.contains(centenar)){
+                        premio=PREMI_CENTENAS;
+                    }
+                }
+            }
+            return premio;
+}
+
+public static int Centenas2nPremi(String numero, ArrayList<Premio> Premiados){
+    int premio=0;
+            for(Premio p : Premiados){
+                if(p.getPremio() == Simulacion.SEGUNDOPREMIO){
+                    String centenar=p.getNumero().substring(0, 3);
+                    if(numero.contains(centenar)){
+                        premio=PREMI_CENTENAS;
+                    }
+                }
+            }
+            return premio;
+}
+
+public static int Centenas3rPremi(String numero, ArrayList<Premio> Premiados){
+    int premio=0;
+            for(Premio p : Premiados){
+                if(p.getPremio() == Simulacion.TERCERPREMIO){
+                    String centenar=p.getNumero().substring(0, 3);
+                    if(numero.contains(centenar)){
+                        premio=PREMI_CENTENAS;
+                    }
+                }
+            }
+            return premio;
+}
+
+public static int Centenas4rtPremi(String numero, ArrayList<Premio> Premiados){
+    int premio=0;
+            for(Premio p : Premiados){
+                if(p.getPremio() == Simulacion.CUARTOS){
+                    String centenar=p.getNumero().substring(0, 3);
+                    if(numero.contains(centenar)){
+                        premio=PREMI_CENTENAS;
+                    }
+                }
+            }
+            return premio;
 }
 
 public static int ComprobarUltimas(String numero, ArrayList<Premio> Premiados) {
