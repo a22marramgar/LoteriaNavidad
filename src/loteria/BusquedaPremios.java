@@ -36,7 +36,7 @@ public class BusquedaPremios {
         premio += Aprox1rPremi(numero, Premiados);
         premio += Aprox2nPremi(numero, Premiados);
         premio += Aprox3rPremi(numero, Premiados);
-        return 0;
+        return premio;
 
     }
 
