@@ -7,7 +7,9 @@ import static utils.Utils.*;
 public class LoteriaNavidad {
 
     static Scanner scan = new Scanner(System.in);
-
+    static final String ANSI_GREEN=("\u001B[32m");
+    static final String ANSI_RESET=("\u001B[0m");
+    static final String ANSI_RED=("\u001B[31m");
     public static void main(String[] args) {
         Simulacion sim = new Simulacion();
         int opcio = 0;
@@ -42,9 +44,9 @@ public class LoteriaNavidad {
                         int precio = pedirnum();
                         double premio = BusquedaPremios.Comprobar(num, sim.GetPremios(), precio);
                         if (premio != 0) {
-                            System.out.println("¡Enhorabuena,has conseguido " + premio + "€!");
+                            System.out.println(ANSI_GREEN+"¡Enhorabona,has aconseguit " + premio + "€!"+ANSI_RESET);
                         } else {
-                            System.out.println("¡Lo sentimos,no has conseguido premio!");
+                            System.out.println(ANSI_RED+"¡Ho sentim,no has aconseguit ningu premi!"+ANSI_RESET);
                         }
 
                     } else {
