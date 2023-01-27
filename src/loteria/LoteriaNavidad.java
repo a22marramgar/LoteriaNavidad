@@ -37,9 +37,8 @@ public class LoteriaNavidad {
                                         
                     if (creado) {                        
                         System.out.println("Introdueix el numero a comprobar");
-                        int numero1 =pedirnum();
-                        String numEnString = Integer.toString(numero1);
-                        String num = String.format("%05d", numEnString);
+                        int numero1 = pedirnum();
+                        String num = String.format("%05d", numero1);
                         System.out.println("Introdueix el preu que has pagat");
                         int precio=pedirnum();
                         System.out.println(BusquedaPremios.Comprobar(num,sim.GetPremios(),precio));
