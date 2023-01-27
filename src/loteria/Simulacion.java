@@ -88,26 +88,26 @@ public class Simulacion {
 
         for (Premio p : this._Lista) {
             if (p.getPremio() == PRIMERPREMIO) {
-                System.out.println("Primer premi: (" + p.getPremio() + "): " + p.getNumero());
+                System.out.println("Primer premi (" + p.getPremio() + "€): " + p.getNumero());
             }
 
         }
         for (Premio p : this._Lista) {
             if (p.getPremio() == SEGUNDOPREMIO) {
-                System.out.println("Segon premi: (" + p.getPremio() + "): " + p.getNumero());
+                System.out.println("Segon premi (" + p.getPremio() + "€): " + p.getNumero());
             }
 
         }
         for (Premio p : this._Lista) {
             if (p.getPremio() == TERCERPREMIO) {
-                System.out.println("Tercer premi: (" + p.getPremio() + "): " + p.getNumero());
+                System.out.println("Tercer premi (" + p.getPremio() + "€): " + p.getNumero());
             }
 
         }
         for (Premio p : this._Lista) {
             if (p.getPremio() == CUARTOS) {
                 if (contador_cuartos == 2) {
-                    System.out.print("Quarts premis: (" + p.getPremio() + "): " + p.getNumero());
+                    System.out.print("Quarts premis (" + p.getPremio() + "€): " + p.getNumero());
                     contador_cuartos--;
                 } else {
                     System.out.println(", " + p.getNumero());
@@ -118,14 +118,17 @@ public class Simulacion {
         for (Premio p : this._Lista) {
             if (p.getPremio() == QUINTOS) {
                 if (contador_quintos == 8) {
-                    System.out.print("Cinquens premis: (" + p.getPremio() + "): " + p.getNumero());
+                    System.out.print("Cinquens premis (" + p.getPremio() + "€): " + p.getNumero());
                     contador_quintos--;
                 } else {
-                    System.out.println(", " + p.getNumero());
+                    System.out.print(", " + p.getNumero());                   
+                    
                 }
+                
             }
 
         }
+        System.out.println("");
     }
 
 }
