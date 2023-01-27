@@ -5,6 +5,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class Simulacion {
+
+    static ArrayList<Premio> getPremios() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     private ArrayList<Premio> _Lista;
     public static final int PRIMERPREMIO = 4000000;
     public static final int SEGUNDOPREMIO =1200000;
