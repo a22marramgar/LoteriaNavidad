@@ -91,8 +91,9 @@ public static int Centenas1rPremi(String numero, ArrayList<Premio> Premiados){
             int premio=0;
             for(Premio p : Premiados){
                 if(p.getPremio() == Simulacion.PRIMERPREMIO){
-                    String centenar=p.getNumero().substring(0, 3);
-                    if(numero.contains(centenar)){
+                    String centenar_premi=p.getNumero().substring(0, 3);
+                    String centenar_numero=numero.substring(0, 3);
+                    if(centenar_premi.equals(centenar_numero)){
                         premio=PREMI_CENTENAS;
                     }
                 }
@@ -103,9 +104,10 @@ public static int Centenas1rPremi(String numero, ArrayList<Premio> Premiados){
 public static int Centenas2nPremi(String numero, ArrayList<Premio> Premiados){
     int premio=0;
             for(Premio p : Premiados){
-                if(p.getPremio() == Simulacion.SEGUNDOPREMIO){
-                    String centenar=p.getNumero().substring(0, 3);
-                    if(numero.contains(centenar)){
+                if(p.getPremio() == Simulacion.PRIMERPREMIO){
+                    String centenar_premi=p.getNumero().substring(0, 3);
+                    String centenar_numero=numero.substring(0, 3);
+                    if(centenar_premi.equals(centenar_numero)){
                         premio=PREMI_CENTENAS;
                     }
                 }
@@ -116,9 +118,10 @@ public static int Centenas2nPremi(String numero, ArrayList<Premio> Premiados){
 public static int Centenas3rPremi(String numero, ArrayList<Premio> Premiados){
     int premio=0;
             for(Premio p : Premiados){
-                if(p.getPremio() == Simulacion.TERCERPREMIO){
-                    String centenar=p.getNumero().substring(0, 3);
-                    if(numero.contains(centenar)){
+                if(p.getPremio() == Simulacion.PRIMERPREMIO){
+                    String centenar_premi=p.getNumero().substring(0, 3);
+                    String centenar_numero=numero.substring(0, 3);
+                    if(centenar_premi.equals(centenar_numero)){
                         premio=PREMI_CENTENAS;
                     }
                 }
@@ -129,9 +132,10 @@ public static int Centenas3rPremi(String numero, ArrayList<Premio> Premiados){
 public static int Centenas4rtPremi(String numero, ArrayList<Premio> Premiados){
     int premio=0;
             for(Premio p : Premiados){
-                if(p.getPremio() == Simulacion.CUARTOS){
-                    String centenar=p.getNumero().substring(0, 3);
-                    if(numero.contains(centenar)){
+                if(p.getPremio() == Simulacion.PRIMERPREMIO){
+                    String centenar_premi=p.getNumero().substring(0, 3);
+                    String centenar_numero=numero.substring(0, 3);
+                    if(centenar_premi.equals(centenar_numero)){
                         premio=PREMI_CENTENAS;
                     }
                 }
