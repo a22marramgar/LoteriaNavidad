@@ -11,16 +11,15 @@ public class Simulacion {
     }
     private ArrayList<Premio> _Lista;
     public static final int PRIMERPREMIO = 4000000;
-    public static final int SEGUNDOPREMIO =1200000;
-    public static final int TERCERPREMIO=500000;
-    public static final int CUARTOS=200000;
-    public static final int QUINTOS=60000;
-    public static final int PEDREAS=1000;
+    public static final int SEGUNDOPREMIO = 1200000;
+    public static final int TERCERPREMIO = 500000;
+    public static final int CUARTOS = 200000;
+    public static final int QUINTOS = 60000;
+    public static final int PEDREAS = 1000;
 
     public boolean IniciarSimulacion() {
         Random ran = new Random();
 
-                                
         System.out.println("Iniciando simulación...");
         ArrayList<Integer> pozo = new ArrayList<>();//Lista con los premios
         pozo.add(PRIMERPREMIO);//1 - un premio
@@ -46,7 +45,7 @@ public class Simulacion {
         //boolean corte7 = false;
         while (pozo.size() >= 1) {
             int valor = ran.nextInt(pozo.size());
-            Premio Prem = new Premio( numeros.get(recorredor),pozo.get(valor));
+            Premio Prem = new Premio(numeros.get(recorredor), pozo.get(valor));
             this._Lista.add(Prem);
             switch (pozo.get(valor)) {
                 case 200000:
@@ -81,8 +80,58 @@ public class Simulacion {
     }
 
     public ArrayList<Premio> GetPremios() {
-        
+
         return this._Lista;
+    }
+
+    public void Mostrar() {
+        
+        int contador_cuartos = 2;
+        int contador_quintos = 8;
+        
+
+        for (Premio p : this._Lista) {
+            if (p.getPremio() == PRIMERPREMIO) {
+                System.out.println("Primer premio: (" + p.getPremio() + "): " + p.getNumero());
+            }
+
+        }
+        for (Premio p : this._Lista) {
+            if (p.getPremio() == SEGUNDOPREMIO) {
+                System.out.println("Segundo premio: (" + p.getPremio() + "): " + p.getNumero());
+            }
+
+        }
+        for (Premio p : this._Lista) {
+            if (p.getPremio() == TERCERPREMIO) {
+                System.out.println("Tercer premio: (" + p.getPremio() + "): " + p.getNumero());
+            }
+
+        }
+        for (Premio p : this._Lista) {
+            if (p.getPremio() == CUARTOS ) {
+                if(contador_cuartos==2){
+                System.out.print("Cuartos premiados: (" + p.getPremio() + "): " + p.getNumero());
+                contador_cuartos--;
+                }
+                else {
+                    System.out.println(", "+p.getNumero());
+                
+                }
+                
+                
+                
+            }
+
+        }
+        for (Premio p : this._Lista) {
+            if (p.getPremio() == QUINTOS) {
+                System.out.println("Quintos premiados: (" + p.getPremio() + "): " + p.getNumero());
+            }
+
+        }
+        
+
     }
 
 }
