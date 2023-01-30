@@ -1,8 +1,7 @@
 package loteria;
 
 import java.util.Scanner;
-import static utils.UtilsBueno.*;
-import static utils.Utils.*;
+import static utils.UIUtilities.*;
 
 public class LoteriaNavidad {
 
@@ -21,7 +20,7 @@ public class LoteriaNavidad {
             System.out.println("2.Buscar el premi");
             System.out.println("3.Veure llista de premis");
             System.out.println("4.Sortir");
-            opcio = comprobarEnter();
+            opcio = escollirOpcio(1,4);
 
             switch (opcio) {
 
@@ -38,10 +37,10 @@ public class LoteriaNavidad {
 
                     if (creado) {
                         System.out.println("Introdueix el numero a comprobar");
-                        int numero1 = pedirnum();
+                        int numero1 = llegirInt();
                         String num = String.format("%05d", numero1);
                         System.out.println("Introdueix el preu que has pagat");
-                        int precio = pedirnum();
+                        int precio = llegirInt();
                         double premio = BusquedaPremios.Comprobar(num, sim.GetPremios(), precio);
                         if (premio != 0) {
                             System.out.println(ANSI_GREEN+"¡Enhorabona,has aconseguit " + premio + "€!"+ANSI_RESET);
