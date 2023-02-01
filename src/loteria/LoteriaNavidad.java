@@ -5,11 +5,6 @@ import static utils.UIUtilities.*;
 
 public class LoteriaNavidad {
 
-    static Scanner scan = new Scanner(System.in);
-    static final String ANSI_GREEN=("\u001B[32m");
-    static final String ANSI_RESET=("\u001B[0m");
-    static final String ANSI_RED=("\u001B[31m");
-    
     public static void main(String[] args) {
         Simulacion sim = new Simulacion();
         int opcio = 0;
@@ -24,7 +19,7 @@ public class LoteriaNavidad {
                     break;
                 case 2:
                     Buscar(creado, sim);
-                    break;      
+                    break;
                 case 3:
                     VeureLlista(creado, sim);
             }
@@ -33,6 +28,12 @@ public class LoteriaNavidad {
 
     }
 
+    /**
+     * Veure la llista de tots els numeros amb premi, menys les pedreas
+     *
+     * @param creado Variable que indica si hi ha una simulacio creada
+     * @param sim Objecte Simulacion
+     */
     private static void VeureLlista(boolean creado, Simulacion sim) {
         if (creado) {
             sim.Mostrar();
@@ -41,27 +42,41 @@ public class LoteriaNavidad {
         }
     }
 
+    /**
+     * Buscar el premi corresponent a un numero
+     *
+     * @param creado Variable que indica si hi ha una simulacio creada
+     * @param sim Objecte Simulacion
+     */
     private static void Buscar(boolean creado, Simulacion sim) {
         if (creado) {
             System.out.println("Introdueix el numero a comprobar");
-            int numero1 = escollirOpcio(0,99999);
+            int numero1 = escollirOpcio(0, 99999);
             String num = String.format("%05d", numero1);
             System.out.println("Introdueix el preu que has pagat");
             int precio = llegirInt();
             Comprobacio comprobar_numero = new Comprobacio(num, sim.GetPremios(), precio);
             System.out.println(comprobar_numero.Resultat());
-            
+
         } else {
             System.out.println("Si us plau, inicia una nova simulacio");
         }
     }
 
+    /**
+     * Crea un objecte Simulacion, preguntant si es vol reescriure l'anterior,
+     * si hi ha
+     *
+     * @param creado Variable que indica si hi ha una simulacio creada
+     * @param sim Objecte Simulacion
+     * @return boolean creado (hauria de retornar sempre true)
+     */
     private static boolean Simulacion(boolean creado, Simulacion sim) {
         if (creado) {
             System.out.println("Ja existeix una simulacio, crear una nova?");
             System.out.println("1.Si");
             System.out.println("2.No");
-            if(escollirOpcio(1,2)==1){
+            if (escollirOpcio(1, 2) == 1) {
                 creado = sim.IniciarSimulacion();
             }
         } else {
@@ -70,6 +85,11 @@ public class LoteriaNavidad {
         return creado;
     }
 
+    /**
+     * Utilitza el menu
+     *
+     * @return int opcio
+     */
     private static int Menu() {
         int opcio;
         System.out.println("Que vols fer? Escull una opcio");
@@ -77,7 +97,7 @@ public class LoteriaNavidad {
         System.out.println("2.Buscar el premi");
         System.out.println("3.Veure llista de premis");
         System.out.println("4.Sortir");
-        opcio = escollirOpcio(1,4);
+        opcio = escollirOpcio(1, 4);
         return opcio;
     }
 }

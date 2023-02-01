@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class Simulacion {
-   
+
     private ArrayList<Premio> _Lista;
     public static final int PRIMERPREMIO = 4000000;
     public static final int SEGUNDOPREMIO = 1200000;
@@ -14,6 +14,11 @@ public class Simulacion {
     public static final int QUINTOS = 60000;
     public static final int PEDREAS = 1000;
 
+    /**
+     * Inicia una nova simulacio, assignant valors a la llista de Premio
+     *
+     * @return true
+     */
     public boolean IniciarSimulacion() {
         Random ran = new Random();
 
@@ -76,11 +81,20 @@ public class Simulacion {
         return true;
     }
 
+    /**
+     * Demana la llista de premis
+     *
+     * @return ArrayList de Premio _Lista
+     */
     public ArrayList<Premio> GetPremios() {
 
         return this._Lista;
     }
 
+    /**
+     * Mostra el primer, segon, tercer, quarts i cinquens premis amb els seus
+     * numeros premiats
+     */
     public void Mostrar() {
 
         int contador_cuartos = 2;
@@ -121,10 +135,10 @@ public class Simulacion {
                     System.out.print("Cinquens premis (" + p.getPremio() + "€): " + p.getNumero());
                     contador_quintos--;
                 } else {
-                    System.out.print(", " + p.getNumero());                   
-                    
+                    System.out.print(", " + p.getNumero());
+
                 }
-                
+
             }
 
         }

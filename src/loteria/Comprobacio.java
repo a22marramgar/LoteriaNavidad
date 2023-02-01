@@ -21,6 +21,13 @@ public class Comprobacio {
     private boolean _ultimas;
     private boolean _reintegro;
 
+    /**
+     * Constructor de Comprobacio
+     *
+     * @param numero numero a comprobar
+     * @param Premiados llista de Premio
+     * @param importe Diners gastats en el numero
+     */
     public Comprobacio(String numero, ArrayList<Premio> Premiados, double importe) {
         this._numero = numero;
         this._lista = Premiados;
@@ -29,6 +36,11 @@ public class Comprobacio {
 
     }
 
+    /**
+     * Demana la comprobacio del total de diners del numero amb l'import aportat
+     *
+     * @return double diners totals assignat a la comprobacio
+     */
     private double Comprobar() {
         int suma = ComprobarPremio();
         suma += ComprobarAproximaciones();
@@ -39,6 +51,11 @@ public class Comprobacio {
         return total;
     }
 
+    /**
+     * Demana la comprobacio del premi assignat al numero
+     *
+     * @return int valor del premi assignat
+     */
     private int ComprobarPremio() {
         int premio = 0;
         for (Premio p : this._lista) {
@@ -50,6 +67,11 @@ public class Comprobacio {
         return premio;
     }
 
+    /**
+     * Demana la comprobacio de les aproximacions
+     *
+     * @return int valor de les aproximacions del numero
+     */
     private int ComprobarAproximaciones() {
         int premio = 0;
         premio += Aprox1rPremi();
@@ -59,6 +81,11 @@ public class Comprobacio {
 
     }
 
+    /**
+     * Demana l'aproximacio del primer premi, si el numero no es igual al premi
+     *
+     * @return int valor de la primera aproxmacio
+     */
     private int Aprox1rPremi() {
         int premio = 0;
         for (Premio p : this._lista) {
@@ -76,6 +103,11 @@ public class Comprobacio {
 
     }
 
+    /**
+     * Demana l'aproximacio del segon premi, si el numero no es igual al premi
+     *
+     * @return int valor de la segona aproxmacio
+     */
     private int Aprox2nPremi() {
         int premio = 0;
         for (Premio p : this._lista) {
@@ -92,6 +124,11 @@ public class Comprobacio {
 
     }
 
+    /**
+     * Demana l'aproximacio del tercer premi, si el numero no es igual al premi
+     *
+     * @return int valor de la tercera aproxmacio
+     */
     private int Aprox3rPremi() {
         int premio = 0;
         for (Premio p : this._lista) {
@@ -108,6 +145,11 @@ public class Comprobacio {
 
     }
 
+    /**
+     * Demana la comprobacio de les centenes
+     *
+     * @return int valor de les centenes
+     */
     private int ComprobarCentenas() {
         int premio = 0;
         premio += Centenas1rPremi();
@@ -118,6 +160,11 @@ public class Comprobacio {
 
     }
 
+    /**
+     * Demana la centena del primer premi, si el numero no es igual al premi
+     *
+     * @return int valor de la primera centena
+     */
     private int Centenas1rPremi() {
         int premio = 0;
         for (Premio p : this._lista) {
@@ -133,6 +180,11 @@ public class Comprobacio {
         return premio;
     }
 
+    /**
+     * Demana la centena del segon premi, si el numero no es igual al premi
+     *
+     * @return int valor de la segona centena
+     */
     private int Centenas2nPremi() {
         int premio = 0;
         for (Premio p : this._lista) {
@@ -148,6 +200,11 @@ public class Comprobacio {
         return premio;
     }
 
+    /**
+     * Demana la centena del tercer premi, si el numero no es igual al premi
+     *
+     * @return int valor de la tercera centena
+     */
     private int Centenas3rPremi() {
         int premio = 0;
         for (Premio p : this._lista) {
@@ -163,6 +220,11 @@ public class Comprobacio {
         return premio;
     }
 
+    /**
+     * Demana la centena del quart premi, si el numero no es igual al premi
+     *
+     * @return int valor de la quarta centena
+     */
     private int Centenas4rtPremi() {
         int premio = 0;
         for (Premio p : this._lista) {
@@ -178,6 +240,11 @@ public class Comprobacio {
         return premio;
     }
 
+    /**
+     * Demana la comprobacio de les ultimes xifres
+     *
+     * @return int valor de les ultimes xifres
+     */
     private int ComprobarUltimas() {
         int premio = 0;
         premio += Last2Cifras1rPremi();
@@ -188,6 +255,12 @@ public class Comprobacio {
 
     }
 
+    /**
+     * Demana el premi de les 2 ultimes xifres del primer premi, si no es igual
+     * al premi
+     *
+     * @return int valor del premi de les 2 ultimes xifres del primer premi
+     */
     private int Last2Cifras1rPremi() {
         int premio = 0;
         for (Premio p : this._lista) {
@@ -203,6 +276,12 @@ public class Comprobacio {
         return premio;
     }
 
+    /**
+     * Demana el premi de les 2 ultimes xifres del segon premi, si no es igual
+     * al premi
+     *
+     * @return int valor del premi de les 2 ultimes xifres del segon premi
+     */
     private int Last2Cifras2nPremi() {
         int premio = 0;
         for (Premio p : this._lista) {
@@ -218,6 +297,12 @@ public class Comprobacio {
         return premio;
     }
 
+    /**
+     * Demana el premi de les 2 ultimes xifres del tercer premi, si no es igual
+     * al premi
+     *
+     * @return int valor del premi de les 2 ultimes xifres del tercer premi
+     */
     private int Last2Cifras3rPremi() {
         int premio = 0;
         for (Premio p : this._lista) {
@@ -233,6 +318,12 @@ public class Comprobacio {
         return premio;
     }
 
+    /**
+     * Demana el premi de l'ultima xifra del primer premi, si no es igual al
+     * premi
+     *
+     * @return int valor del premi de l'ultima xifra del primer premi
+     */
     private int UltimaCifra1rPremi() {
 
         int premio = 0;
@@ -249,12 +340,25 @@ public class Comprobacio {
         return premio;
     }
 
+    /**
+     * Calcula el valor final del premi segons l'import aportat
+     *
+     * @param suma valor acumulat del premi
+     * @return double valor acumulat del premi segons l'import (200 euros
+     * equival a un 100% del premi)
+     */
     private double CalcularTotal(int suma) {
         double total = suma * (_importe / 200);
         return total;
 
     }
 
+    /**
+     * Crea un missatge personalitzat anunciat el premi assignat a aquesta
+     * comprobacio
+     *
+     * @return String missatge
+     */
     public String Resultat() {
         String missatge;
         if (this._total != 0) {
@@ -274,21 +378,21 @@ public class Comprobacio {
                 }
                 missatge += "CENTENA";
             }
-                if (this._ultimas) {
-                    if (this._premio || this._aproximacion || this._centenas) {
-                        missatge += ", ";
-                    }
-                    missatge += "ULTIMES 2 XIFRES";
+            if (this._ultimas) {
+                if (this._premio || this._aproximacion || this._centenas) {
+                    missatge += ", ";
                 }
-                    if (this._reintegro) {
-                        if (this._premio || this._aproximacion || this._centenas || this._ultimas) {
-                            missatge += ", ";
-                        }
-                        missatge += "REINTEGRAMENT";
-                    }
-                } else {
-                    missatge = "Ho sentim, aquest numero no te cap premi.";
-                }
-                return missatge;
+                missatge += "ULTIMES 2 XIFRES";
             }
+            if (this._reintegro) {
+                if (this._premio || this._aproximacion || this._centenas || this._ultimas) {
+                    missatge += ", ";
+                }
+                missatge += "REINTEGRAMENT";
+            }
+        } else {
+            missatge = "Ho sentim, aquest numero no te cap premi.";
         }
+        return missatge;
+    }
+}
