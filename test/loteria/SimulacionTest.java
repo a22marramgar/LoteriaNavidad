@@ -59,31 +59,5 @@ public class SimulacionTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
-
-    /**
-     * Test of GetPremios method, of class Simulacion.
-     */
-    @Test
-    public void testGetPremios() {
-        System.out.println("GetPremios");
-        Simulacion instance = new Simulacion();
-        ArrayList<Premio> expResult = null;
-        ArrayList<Premio> result = instance.GetPremios();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of Mostrar method, of class Simulacion.
-     */
-    @Test
-    public void testMostrar() {
-        System.out.println("Mostrar");
-        Simulacion instance = new Simulacion();
-        instance.Mostrar();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
     
 }
