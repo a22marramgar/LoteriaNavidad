@@ -1,6 +1,5 @@
 package loteria;
 
-import java.util.Scanner;
 import static utils.UIUtilities.*;
 
 /**
@@ -53,7 +52,7 @@ public class LoteriaNavidad {
      * @param creado Variable que indica si hi ha una simulacio creada
      * @param sim Objecte Simulacion
      */
-    private static void Buscar(boolean creado, Simulacion sim) {
+    public static void Buscar(boolean creado, Simulacion sim) {
         if (creado) {
             System.out.println("Introdueix el numero a comprobar");
             int numero1 = escollirOpcio(0, 99999);
@@ -76,7 +75,7 @@ public class LoteriaNavidad {
      * @param sim Objecte Simulacion
      * @return boolean creado (hauria de retornar sempre true)
      */
-    private static boolean Simulacion(boolean creado, Simulacion sim) {
+    public static boolean Simulacion(boolean creado, Simulacion sim) {
         if (creado) {
             System.out.println("Ja existeix una simulacio, crear una nova?");
             System.out.println("1.Si");
@@ -95,7 +94,7 @@ public class LoteriaNavidad {
      *
      * @return int opcio
      */
-    private static int Menu() {
+    public static int Menu() {
         int opcio;
         System.out.println("Que vols fer? Escull una opcio");
         System.out.println("1.Inicia simulacio");
