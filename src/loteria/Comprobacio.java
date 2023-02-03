@@ -356,6 +356,22 @@ public class Comprobacio {
         return total;
 
     }
+    
+    /**
+     * Demana l'importe aportat a la comprobacio del premi
+     * @return double importe
+     */
+    public double getImporte(){
+        return this._importe;
+    }
+    
+    /**
+     * Demana el preu total de la comprobacio
+     * @return double total
+     */
+    public double getTotal(){
+        return this._total;
+    }
 
     /**
      * Crea un missatge personalitzat anunciat el premi assignat a aquesta
