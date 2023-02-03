@@ -2,6 +2,10 @@ package loteria;
 
 import java.util.ArrayList;
 
+/**
+ * Comproba el premis de cada numero
+ * @author ausias
+ */
 public class Comprobacio {
 
     static final int APROX_PRIMER_PREMI = 20000;

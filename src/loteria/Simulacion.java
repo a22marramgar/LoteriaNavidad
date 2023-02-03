@@ -4,6 +4,12 @@ import java.util.Random;
 import java.util.ArrayList;
 import java.util.Collections;
 
+/**
+ * Creara una simulacio com si fos el sorteig, simulant els bombos on sortiran
+ * el numero al atzar
+ * @author ausias
+ */
+
 public class Simulacion {
 
     private ArrayList<Premio> _Lista;

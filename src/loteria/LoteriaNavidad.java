@@ -3,6 +3,11 @@ package loteria;
 import java.util.Scanner;
 import static utils.UIUtilities.*;
 
+/**
+ * Portara el menu principal, on s'executaran les altres clases, funcions i procediments
+ * @author ausias
+ */
+
 public class LoteriaNavidad {
 
     public static void main(String[] args) {
