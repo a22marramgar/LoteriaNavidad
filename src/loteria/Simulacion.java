@@ -28,7 +28,7 @@ public class Simulacion {
     public boolean IniciarSimulacion() {
         Random ran = new Random();
 
-        System.out.println("Iniciant simulacio...");
+        
         ArrayList<Integer> pozo = new ArrayList<>();//Lista con los premios
         pozo.add(PRIMERPREMIO);//1 - un premio
         pozo.add(SEGUNDOPREMIO);//2 - un premio
@@ -83,7 +83,7 @@ public class Simulacion {
             }
             recorredor++;
         }
-        System.out.println("Finalitzat.");
+        
         return true;
     }
 

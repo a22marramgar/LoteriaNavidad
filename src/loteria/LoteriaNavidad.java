@@ -18,7 +18,7 @@ public class LoteriaNavidad {
             opcio = Menu();
 
             switch (opcio) {
-                case 1:
+                case 1:                    
                     creado = Simulacion(creado, sim);
                     break;
                 case 2:
@@ -76,15 +76,21 @@ public class LoteriaNavidad {
      * @return boolean creado (hauria de retornar sempre true)
      */
     public static boolean Simulacion(boolean creado, Simulacion sim) {
+        
         if (creado) {
             System.out.println("Ja existeix una simulacio, crear una nova?");
             System.out.println("1.Si");
             System.out.println("2.No");
             if (escollirOpcio(1, 2) == 1) {
+                System.out.println("Iniciant simulacio...");
                 creado = sim.IniciarSimulacion();
+                System.out.println("Finalitzat.");
+                
             }
         } else {
+            System.out.println("Iniciant simulacio...");
             creado = sim.IniciarSimulacion();
+            System.out.println("Finalitzat.");
         }
         return creado;
     }
