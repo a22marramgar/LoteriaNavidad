@@ -372,6 +372,14 @@ public class Comprobacio {
     public double getTotal(){
         return this._total;
     }
+    
+    /**
+     * Demana el numero que realitza la comprobacio
+     * @return String numero
+     */
+    public String getNumero(){
+        return this._numero;
+    }
 
     /**
      * Crea un missatge personalitzat anunciat el premi assignat a aquesta
