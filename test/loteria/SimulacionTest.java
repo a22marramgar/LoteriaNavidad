@@ -5,6 +5,8 @@
 package loteria;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 import static loteria.Simulacion.*;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
@@ -56,6 +58,48 @@ public class SimulacionTest {
         }
         boolean result = instance.IniciarSimulacion();
         assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+    
+     /**
+     * Test of IniciarSimulacion method, of class Simulacion.
+     */
+    @org.junit.jupiter.api.Test
+    public void testSimulacionNumerosRepetidos() {
+        System.out.println("SimulacionNumerosRepetidos");
+        Simulacion sim = new Simulacion();
+        sim.IniciarSimulacion();
+        Set<String> numeros_repetidos = new HashSet<>();
+        for (Premio p : sim.GetPremios()) {
+            if(numeros_repetidos.add(p.getNumero()) == false){
+                fail("Numero "+p.getNumero()+" repetido");
+            }
+        }
+    }
+
+    /**
+     * Test of GetPremios method, of class Simulacion.
+     */
+    @org.junit.jupiter.api.Test
+    public void testGetPremios() {
+        System.out.println("GetPremios");
+        Simulacion instance = new Simulacion();
+        ArrayList<Premio> expResult = null;
+        ArrayList<Premio> result = instance.GetPremios();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of Mostrar method, of class Simulacion.
+     */
+    @org.junit.jupiter.api.Test
+    public void testMostrar() {
+        System.out.println("Mostrar");
+        Simulacion instance = new Simulacion();
+        instance.Mostrar();
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
