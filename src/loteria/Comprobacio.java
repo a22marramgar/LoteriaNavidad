@@ -78,69 +78,26 @@ public class Comprobacio {
      */
     private int ComprobarAproximaciones() {
         int premio = 0;
-        premio += Aprox1rPremi();
-        premio += Aprox2nPremi();
-        premio += Aprox3rPremi();
+        premio += Aproximacion(Simulacion.PRIMERPREMIO, APROX_PRIMER_PREMI);
+        premio += Aproximacion(Simulacion.SEGUNDOPREMIO, APROX_SEGON_PREMI);
+        premio += Aproximacion(Simulacion.TERCERPREMIO, APROX_TERCER_PREMI);
         return premio;
 
     }
 
     /**
-     * Demana l'aproximacio del primer premi, si el numero no es igual al premi
+     * Demana l'aproximacio d'un premi, si el numero no es igual al premi
      *
      * @return int valor de la primera aproxmacio
      */
-    private int Aprox1rPremi() {
+    private int Aproximacion(int valorPremio, int valorAproximacion) {
         int premio = 0;
         for (Premio p : this._lista) {
-            if (p.getPremio() == Simulacion.PRIMERPREMIO) {
+            if (p.getPremio() == valorPremio) {
                 int numeropremi = Integer.parseInt(p.getNumero());
                 int numero_a_probar = Integer.parseInt(this._numero);
                 if (numeropremi == numero_a_probar + 1 || numeropremi == numero_a_probar - 1) {
-                    premio = APROX_PRIMER_PREMI;
-                    this._aproximacion = true;
-                }
-
-            }
-        }
-        return premio;
-
-    }
-
-    /**
-     * Demana l'aproximacio del segon premi, si el numero no es igual al premi
-     *
-     * @return int valor de la segona aproxmacio
-     */
-    private int Aprox2nPremi() {
-        int premio = 0;
-        for (Premio p : this._lista) {
-            if (p.getPremio() == Simulacion.SEGUNDOPREMIO) {
-                int numeropremi = Integer.parseInt(p.getNumero());
-                int numero_a_probar = Integer.parseInt(this._numero);
-                if (numeropremi == numero_a_probar + 1 || numeropremi == numero_a_probar - 1) {
-                    premio = APROX_SEGON_PREMI;
-                    this._aproximacion = true;
-                }
-            }
-        }
-        return premio;
-
-    }
-
-    /**
-     * Demana l'aproximacio del tercer premi, si el numero no es igual al premi
-     *
-     * @return int valor de la tercera aproxmacio
-     */
-    private int Aprox3rPremi() {
-        int premio = 0;
-        for (Premio p : this._lista) {
-            if (p.getPremio() == Simulacion.TERCERPREMIO) {
-                int numeropremi = Integer.parseInt(p.getNumero());
-                int numero_a_probar = Integer.parseInt(this._numero);
-                if (numeropremi == numero_a_probar + 1 || numeropremi == numero_a_probar - 1) {
-                    premio = APROX_TERCER_PREMI;
+                    premio = valorAproximacion;
                     this._aproximacion = true;
                 }
             }
@@ -156,83 +113,23 @@ public class Comprobacio {
      */
     private int ComprobarCentenas() {
         int premio = 0;
-        premio += Centenas1rPremi();
-        premio += Centenas2nPremi();
-        premio += Centenas3rPremi();
-        premio += Centenas4rtPremi();
+        premio += Centenas(Simulacion.PRIMERPREMIO);
+        premio += Centenas(Simulacion.SEGUNDOPREMIO);
+        premio += Centenas(Simulacion.TERCERPREMIO);
+        premio += Centenas(Simulacion.CUARTOS);
         return premio;
 
     }
 
     /**
-     * Demana la centena del primer premi, si el numero no es igual al premi
+     * Demana la centena d'un premi, si el numero no es igual al premi
      *
      * @return int valor de la primera centena
      */
-    private int Centenas1rPremi() {
+    private int Centenas(int valorPremio) {
         int premio = 0;
         for (Premio p : this._lista) {
-            if (p.getPremio() == Simulacion.PRIMERPREMIO && !this._numero.equals(p.getNumero())) {
-                String centenar_premi = p.getNumero().substring(0, 3);
-                String centenar_numero = this._numero.substring(0, 3);
-                if (centenar_premi.equals(centenar_numero)) {
-                    premio = PREMI_CENTENAS;
-                    this._centenas = true;
-                }
-            }
-        }
-        return premio;
-    }
-
-    /**
-     * Demana la centena del segon premi, si el numero no es igual al premi
-     *
-     * @return int valor de la segona centena
-     */
-    private int Centenas2nPremi() {
-        int premio = 0;
-        for (Premio p : this._lista) {
-            if (p.getPremio() == Simulacion.SEGUNDOPREMIO && !this._numero.equals(p.getNumero())) {
-                String centenar_premi = p.getNumero().substring(0, 3);
-                String centenar_numero = this._numero.substring(0, 3);
-                if (centenar_premi.equals(centenar_numero)) {
-                    premio = PREMI_CENTENAS;
-                    this._centenas = true;
-                }
-            }
-        }
-        return premio;
-    }
-
-    /**
-     * Demana la centena del tercer premi, si el numero no es igual al premi
-     *
-     * @return int valor de la tercera centena
-     */
-    private int Centenas3rPremi() {
-        int premio = 0;
-        for (Premio p : this._lista) {
-            if (p.getPremio() == Simulacion.TERCERPREMIO && !this._numero.equals(p.getNumero())) {
-                String centenar_premi = p.getNumero().substring(0, 3);
-                String centenar_numero = this._numero.substring(0, 3);
-                if (centenar_premi.equals(centenar_numero)) {
-                    premio = PREMI_CENTENAS;
-                    this._centenas = true;
-                }
-            }
-        }
-        return premio;
-    }
-
-    /**
-     * Demana la centena del quart premi, si el numero no es igual al premi
-     *
-     * @return int valor de la quarta centena
-     */
-    private int Centenas4rtPremi() {
-        int premio = 0;
-        for (Premio p : this._lista) {
-            if (p.getPremio() == Simulacion.CUARTOS && !this._numero.equals(p.getNumero())) {
+            if (p.getPremio() == valorPremio && !this._numero.equals(p.getNumero())) {
                 String centenar_premi = p.getNumero().substring(0, 3);
                 String centenar_numero = this._numero.substring(0, 3);
                 if (centenar_premi.equals(centenar_numero)) {
@@ -251,66 +148,24 @@ public class Comprobacio {
      */
     private int ComprobarUltimas() {
         int premio = 0;
-        premio += Last2Cifras1rPremi();
-        premio += Last2Cifras2nPremi();
-        premio += Last2Cifras3rPremi();
+        premio += Last2Cifras(Simulacion.PRIMERPREMIO);
+        premio += Last2Cifras(Simulacion.SEGUNDOPREMIO);
+        premio += Last2Cifras(Simulacion.TERCERPREMIO);
         premio += UltimaCifra1rPremi();
         return premio;
 
     }
 
     /**
-     * Demana el premi de les 2 ultimes xifres del primer premi, si no es igual
+     * Demana el premi de les 2 ultimes xifres d'un premi, si no es igual
      * al premi
      *
      * @return int valor del premi de les 2 ultimes xifres del primer premi
      */
-    private int Last2Cifras1rPremi() {
+    private int Last2Cifras(int valorPremio) {
         int premio = 0;
         for (Premio p : this._lista) {
-            if (p.getPremio() == Simulacion.PRIMERPREMIO && !this._numero.equals(p.getNumero())) {
-                String ultimas_2_cifras_premi = p.getNumero().substring(3, 5);
-                String ultimas_2_cifras_numero = this._numero.substring(3, 5);
-                if (ultimas_2_cifras_premi.equals(ultimas_2_cifras_numero)) {
-                    premio = PREMI_2CIFRAS_ULTIMAS;
-                    this._ultimas = true;
-                }
-            }
-        }
-        return premio;
-    }
-
-    /**
-     * Demana el premi de les 2 ultimes xifres del segon premi, si no es igual
-     * al premi
-     *
-     * @return int valor del premi de les 2 ultimes xifres del segon premi
-     */
-    private int Last2Cifras2nPremi() {
-        int premio = 0;
-        for (Premio p : this._lista) {
-            if (p.getPremio() == Simulacion.SEGUNDOPREMIO && !this._numero.equals(p.getNumero())) {
-                String ultimas_2_cifras_premi = p.getNumero().substring(3, 5);
-                String ultimas_2_cifras_numero = this._numero.substring(3, 5);
-                if (ultimas_2_cifras_premi.equals(ultimas_2_cifras_numero)) {
-                    premio = PREMI_2CIFRAS_ULTIMAS;
-                    this._ultimas = true;
-                }
-            }
-        }
-        return premio;
-    }
-
-    /**
-     * Demana el premi de les 2 ultimes xifres del tercer premi, si no es igual
-     * al premi
-     *
-     * @return int valor del premi de les 2 ultimes xifres del tercer premi
-     */
-    private int Last2Cifras3rPremi() {
-        int premio = 0;
-        for (Premio p : this._lista) {
-            if (p.getPremio() == Simulacion.TERCERPREMIO && !this._numero.equals(p.getNumero())) {
+            if (p.getPremio() == valorPremio && !this._numero.equals(p.getNumero())) {
                 String ultimas_2_cifras_premi = p.getNumero().substring(3, 5);
                 String ultimas_2_cifras_numero = this._numero.substring(3, 5);
                 if (ultimas_2_cifras_premi.equals(ultimas_2_cifras_numero)) {
