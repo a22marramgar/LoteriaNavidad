@@ -1,6 +1,6 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit5TestClass.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit4TestClass.java to edit this template
  */
 package loteria;
 
@@ -8,12 +8,12 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 import static loteria.Simulacion.*;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import static org.junit.Assert.*;
 
 /**
  *
@@ -24,19 +24,19 @@ public class SimulacionTest {
     public SimulacionTest() {
     }
     
-    @BeforeAll
+    @BeforeClass
     public static void setUpClass() {
     }
     
-    @AfterAll
+    @AfterClass
     public static void tearDownClass() {
     }
     
-    @BeforeEach
+    @Before
     public void setUp() {
     }
     
-    @AfterEach
+    @After
     public void tearDown() {
     }
 
@@ -58,14 +58,12 @@ public class SimulacionTest {
         }
         boolean result = instance.IniciarSimulacion();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
-     /**
+    /**
      * Test of IniciarSimulacion method, of class Simulacion.
      */
-    @org.junit.jupiter.api.Test
+    @Test
     public void testSimulacionNumerosRepetidos() {
         System.out.println("SimulacionNumerosRepetidos");
         Simulacion sim = new Simulacion();
@@ -77,31 +75,4 @@ public class SimulacionTest {
             }
         }
     }
-
-    /**
-     * Test of GetPremios method, of class Simulacion.
-     */
-    @org.junit.jupiter.api.Test
-    public void testGetPremios() {
-        System.out.println("GetPremios");
-        Simulacion instance = new Simulacion();
-        ArrayList<Premio> expResult = null;
-        ArrayList<Premio> result = instance.GetPremios();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of Mostrar method, of class Simulacion.
-     */
-    @org.junit.jupiter.api.Test
-    public void testMostrar() {
-        System.out.println("Mostrar");
-        Simulacion instance = new Simulacion();
-        instance.Mostrar();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-    
 }
