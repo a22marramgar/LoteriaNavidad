@@ -54,13 +54,13 @@ public class LoteriaNavidad {
      */
     public static void Buscar(boolean creado, Simulacion sim) {
         if (creado) {
+            Comprobacio comprobar_numero = new Comprobacio(sim.GetPremios());
             System.out.println("Introdueix el numero a comprobar");
             int numero1 = escollirOpcio(0, 99999);
             String num = String.format("%05d", numero1);
             System.out.println("Introdueix el preu que has pagat");
             int precio = llegirInt();
-            Comprobacio comprobar_numero = new Comprobacio(num, sim.GetPremios(), precio);
-            System.out.println(comprobar_numero.Resultat());
+            System.out.println(comprobar_numero.Resultat(num, precio));
 
         } else {
             System.out.println("Si us plau, inicia una nova simulacio");

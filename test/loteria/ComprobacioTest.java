@@ -38,19 +38,6 @@ public class ComprobacioTest {
     }
 
     /**
-     * Test of getImporte method, of class Comprobacio.
-     */
-    @Test
-    public void testGetImporte() {
-        String numero = "014721";
-        double importe = 20;        
-        ArrayList <Premio> pruebas = new ArrayList<>();
-        Comprobacio comprobar_importe= new Comprobacio(numero, pruebas, importe);
-        assertEquals(comprobar_importe.getImporte(), importe, 0);
-        
-    }
-
-    /**
      * Test of getTotal method, of class Comprobacio.
      */
     @Test
@@ -70,10 +57,10 @@ public class ComprobacioTest {
         pruebas.add(cuarto2);
         pruebas.add(quinto);
         pruebas.add(pedrea);
-        System.out.println("getTotal");
-        Comprobacio comprobar = new Comprobacio("12347", pruebas, 200);
+        System.out.println("test1rPremio");
+        Comprobacio comprobar = new Comprobacio(pruebas);
         double expResult = 4000000.0;
-        double result = comprobar.getTotal();
+        double result = comprobar.Comprobar("12347",200);
         assertEquals(expResult, result, 0);
     }
     
