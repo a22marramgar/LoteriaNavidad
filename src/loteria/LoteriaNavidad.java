@@ -1,6 +1,7 @@
 package loteria;
 
 import static utils.UIUtilities.*;
+import static loteria.Idiomas.*;
 
 /**
  * Portara el menu principal, on s'executaran les altres clases, funcions i procediments
@@ -15,7 +16,10 @@ public class LoteriaNavidad {
         boolean creado = false;
 
         while (opcio != 4) {
-            opcio = Menu();
+            opcio = Menu("Inicia simulacio",
+        "Buscar el premi",
+        "Veure llista de premis",
+        "Sortir");
 
             switch (opcio) {
                 case 1:                    
@@ -98,16 +102,18 @@ public class LoteriaNavidad {
     /**
      * Utilitza el menu
      *
+     * @param opciones Las opciones que tendra el menu
      * @return int opcio
      */
-    public static int Menu() {
+    public static int Menu(String ...opciones) {
         int opcio;
-        System.out.println("Que vols fer? Escull una opcio");
-        System.out.println("1.Inicia simulacio");
-        System.out.println("2.Buscar el premi");
-        System.out.println("3.Veure llista de premis");
-        System.out.println("4.Sortir");
-        opcio = escollirOpcio(1, 4);
+        int num=1;
+        System.out.println("Opcions:");
+        for(String a:opciones){
+            System.out.println(num+". "+a);
+            num++;
+        }
+        opcio = escollirOpcio(1, num);
         return opcio;
     }
 }
