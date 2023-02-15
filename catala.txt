@@ -1,0 +1,28 @@
+ premi
+Primer
+Segon
+Tercer
+Quarts
+Cinquens
+Felicitats, has guanyat
+Aquest premi es reparteix entre
+APROXIMACIO
+CENTENA
+ULTIMES 2 XIFRES
+REINTEGRAMENT
+Ho sentim, aquest numero no te cap premi.
+Adeu, fins un altre moment
+Si us plau, inicia una nova simulacio
+Introdueix el numero a comprobar
+Introdueix el preu que has pagat
+Si us plau, inicia una nova simulacio
+Ja existeix una simulacio, crear una nova?
+Si
+No
+Iniciant simulacio...
+Finalitzat.
+Opcions
+Iniciar simulacio
+Busca el premi
+Veure llistat de premis
+Sortir

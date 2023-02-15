@@ -11,15 +11,16 @@ import static loteria.Idiomas.*;
 public class LoteriaNavidad {
 
     public static void main(String[] args) {
+        SelectorIdioma();
         Simulacion sim = new Simulacion();
         int opcio = 0;
         boolean creado = false;
 
         while (opcio != 4) {
-            opcio = Menu("Inicia simulacio",
-        "Buscar el premi",
-        "Veure llista de premis",
-        "Sortir");
+            opcio = Menu(idioma.idiomaSel[24],
+        idioma.idiomaSel[25],
+        idioma.idiomaSel[26],
+        idioma.idiomaSel[27]);
 
             switch (opcio) {
                 case 1:                    
@@ -32,10 +33,10 @@ public class LoteriaNavidad {
                     VeureLlista(creado, sim);
             }
         }
-        System.out.println("Adeu, fins un altre moment");
+        System.out.println(idioma.idiomaSel[13]);
 
     }
-
+    
     /**
      * Veure la llista de tots els numeros amb premi, menys les pedreas
      *
@@ -46,7 +47,7 @@ public class LoteriaNavidad {
         if (creado) {
             sim.Mostrar();
         } else {
-            System.out.println("Si us plau, inicia una nova simulacio");
+            System.out.println(idioma.idiomaSel[14]);
         }
     }
 
@@ -59,15 +60,15 @@ public class LoteriaNavidad {
     public static void Buscar(boolean creado, Simulacion sim) {
         if (creado) {
             Comprobacio comprobar_numero = new Comprobacio(sim.GetPremios());
-            System.out.println("Introdueix el numero a comprobar");
-            int numero1 = escollirOpcio(0, 99999);
+            System.out.println(idioma.idiomaSel[15]);
+            int numero1 = escollirOpcio(0, 99999,idioma.idiomaSel[15]);
             String num = String.format("%05d", numero1);
-            System.out.println("Introdueix el preu que has pagat");
+            System.out.println(idioma.idiomaSel[16]);
             int precio = llegirInt();
             System.out.println(comprobar_numero.Resultat(num, precio));
 
         } else {
-            System.out.println("Si us plau, inicia una nova simulacio");
+            System.out.println(idioma.idiomaSel[17]);
         }
     }
 
@@ -82,38 +83,22 @@ public class LoteriaNavidad {
     public static boolean Simulacion(boolean creado, Simulacion sim) {
         
         if (creado) {
-            System.out.println("Ja existeix una simulacio, crear una nova?");
-            System.out.println("1.Si");
-            System.out.println("2.No");
-            if (escollirOpcio(1, 2) == 1) {
-                System.out.println("Iniciant simulacio...");
+            System.out.println(idioma.idiomaSel[18]);
+            System.out.println("1. "+ idioma.idiomaSel[19]);
+            System.out.println("2. "+ idioma.idiomaSel[20]);
+            if (escollirOpcio(1, 2,idioma.idiomaSel[18]) == 1) {
+                System.out.println(idioma.idiomaSel[21]);
                 creado = sim.IniciarSimulacion();
-                System.out.println("Finalitzat.");
+                System.out.println(idioma.idiomaSel[22]);
                 
             }
         } else {
-            System.out.println("Iniciant simulacio...");
+            System.out.println(idioma.idiomaSel[21]);
             creado = sim.IniciarSimulacion();
-            System.out.println("Finalitzat.");
+            System.out.println(idioma.idiomaSel[22]);
         }
         return creado;
     }
 
-    /**
-     * Utilitza el menu
-     *
-     * @param opciones Las opciones que tendra el menu
-     * @return int opcio
-     */
-    public static int Menu(String ...opciones) {
-        int opcio;
-        int num=1;
-        System.out.println("Opcions:");
-        for(String a:opciones){
-            System.out.println(num+". "+a);
-            num++;
-        }
-        opcio = escollirOpcio(1, num);
-        return opcio;
-    }
+
 }

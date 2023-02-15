@@ -2,6 +2,7 @@ package loteria;
 
 import java.util.ArrayList;
 import java.util.List;
+import static loteria.Idiomas.*;
 
 /**
  * Comproba el premis de cada numero
@@ -237,24 +238,24 @@ public class Comprobacio {
         if (total != 0) {
             List<String> premios = new ArrayList<>();
             if (this._premio) {
-                premios.add("PREMI");
+                premios.add(idioma.idiomaSel[0].toUpperCase());
             }
             if (this._aproximacion) {
-                premios.add("APROXIMACIO");
+                premios.add(idioma.idiomaSel[8]);
             }
             if (this._centenas) {
-                premios.add("CENTENA");
+                premios.add(idioma.idiomaSel[9]);
             }
             if (this._ultimas) {
-                premios.add("ULTIMES 2 XIFRES");
+                premios.add(idioma.idiomaSel[10]);
             }
             if (this._reintegro) {
-                premios.add("REINTEGRAMENT");
+                premios.add(idioma.idiomaSel[11]);
             }
             String premiosString = String.join(", ", premios);
-            missatge = "Felicitats, has guanyat " + total + "€!\nAquest premi es reparteix entre: " + premiosString;
+            missatge = idioma.idiomaSel[6] + total + "€!\n"+idioma.idiomaSel[8]+": " + premiosString;
         } else {
-            missatge = "Ho sentim, aquest numero no te cap premi.";
+            missatge = idioma.idiomaSel[12];
         }
         return missatge;
     }

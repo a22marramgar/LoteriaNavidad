@@ -3,6 +3,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package loteria;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import static utils.UIUtilities.*;
 
 /**
  *
@@ -14,61 +19,87 @@ public class Idiomas {
 
     public Idiomas() {
     }
-    String[][] idiomaSel;
-    public static final String[][][] LISTA_FRASES = {
-        {{"premi"},
+    String[] idiomaSel;
+    public static final String[] LISTA_FRASES = 
+/*0*/       {"",
         
-        {"Primer", "Segon", "Tercer","Quarts", "Cinquens"}, //Simulacio
+/*2*/       "", "", "","", "", //Simulacio
         
-        {"Felicitats, has guanyat ","Aquest premi es reparteix entre", // Resultat
-        "APROXIMACIO", "CENTENA","ULTIMES 2 XIFRES","REINTEGRAMENT",
-        "Ho sentim, aquest numero no te cap premi."}, 
+/*3*/       "","", // Resultat
+            "", "","","",
+            "", 
         
-        {"Adeu, fins un altre moment", "Si us plau, inicia una nova simulacio"}, // Main
+/*4*/       "", "", // Main
         
-        {"Introdueix el numero a comprobar", //Buscar
-        "Introdueix el preu que has pagat",
-        "Si us plau, inicia una nova simulacio"},
+/*5*/       "", //Buscar
+            "",
+            "",
         
-        {"Ja existeix una simulacio, crear una nova?", "Si", "No", // Menu/simulacion
-        "Iniciant simulacio...", "Finalitzat."},
+/*6*/       "", "", "", // Menu/simulacion
+            "", "",
         
-        {"Opcions", // Menu
-        "Inicia simulacio",
-        "Buscar el premi",
-        "Veure llista de premis",
-        "Sortir"}},
+/*7*/       "", // Menu
+            "",
+            "",
+            "",
+            ""};
         
-        {{"premio"},
-        
-        {"Primero", "Segundo", "Tercero","Cuartos", "Quintos"}, //Simulacio
-        
-        {"Felicidades, has ganado ","Este premio se reparte entre entre", // Resultat
-        "APROXIMACION", "CENTENA","ULTIMAS 2 CIFRAS","REINTEGRO",
-        "Lo sentimos, este numero no tiene ningun premio."}, 
-        
-        {"Adios, hasta otra", "Por favor inicia una nueva simulacion"}, // Main
-        
-        {"Introduce el numero a comprobar", //Buscar
-        "Introduce el precio que has pagado",
-        "Por favor inicia una nueva simulacion"},
-        
-        {"Ya existe una simulacion, crear una nueva?", "Si", "No", // Menu/simulacion
-        "Iniciando simulacion...", "Finalizado."},
-        
-        {"Opciones", // Menu
-        "Iniciar simulacion",
-        "Buscar el premio",
-        "Ver lista de premios",
-        "Salir"}}
-    
-    };  
-    public static Idiomas SelectorIdioma(int eleccion) {
+    public static Idiomas SelectorIdioma() {
         if (idioma == null) {
             idioma = new Idiomas();
         }
-        idioma.idiomaSel= LISTA_FRASES[eleccion];
+        String idiomaElegido = Selector();
+        SacarFrases(idiomaElegido);
+        idioma.idiomaSel= LISTA_FRASES;
         
         return idioma;
+    }
+    
+    public static void SacarFrases(String nom) {
+        // Creamos el enlace con el fichero en el disco
+        BufferedReader buf = AbrirFicheroLectura(nom, true);
+
+        String linea = LeerLinea(buf);
+        int pos=0;
+        while (linea != null) {
+            LISTA_FRASES[pos]= linea;
+            linea = LeerLinea(buf);
+            pos++;
+        }
+        CerrarFichero(buf);
+    }
+    public static void CerrarFichero(BufferedReader br) {
+        try {
+            br.close();
+        } catch (IOException ex) {
+            Logger.getLogger(Idiomas.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    public static String LeerLinea(BufferedReader br) {
+        String linea = null;
+
+        try {
+            linea = br.readLine();
+        } catch (IOException ex) {
+            Logger.getLogger(Idiomas.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return linea;
+    }
+        /**
+     * 
+     * @return Devuelve el idioma que se usara
+     */
+    public static String Selector(){
+        int elegido;
+        String eleccion;
+        System.out.println("Elige un idioma:");
+        elegido = Menu("Catala","Castella");
+        if(elegido==1){
+            eleccion="./catala.txt";
+        }else{
+            eleccion="./castella.txt";
+        }
+        return eleccion;
     }
 }
