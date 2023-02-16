@@ -107,4 +107,36 @@ public class ArchivosBinarios {
 
         return dis;
     }
+    
+     public static void CerrarFicheroBinarioInput(DataInputStream dis) {
+        try {
+            dis.close();
+        } catch (IOException ex) {
+            Logger.getLogger(ArchivosBinarios.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public static void LeerPremiosBinario() {
+        DataInputStream dis = AbrirFicheroLecturaBinario(LOTERIA, true);
+
+        Premio p = LeerDatosPremiosBinario(dis);
+        while (p != null) {
+            EscribirDatosCliente(p);
+            p = LeerDatosPremiosBinario(dis);
+        }
+
+        CerrarFicheroBinarioInput(dis);
+    }
+    
+     public static Premio LeerDatosPremiosBinario(DataInputStream dis) {
+        Premio p = new Premio();
+
+        try {        
+            p.numero = dis.readUTF();
+            p.premio = dis.readInt();
+        } catch (IOException ex) {
+            p = null;
+        }
+        return p;
+    }
 }
