@@ -121,7 +121,7 @@ public class ArchivosBinarios {
 
         Premio p = LeerDatosPremiosBinario(dis);
         while (p != null) {
-            EscribirDatosCliente(p);
+            EscribirDatosPremios(p);
             p = LeerDatosPremiosBinario(dis);
         }
 
@@ -133,10 +133,16 @@ public class ArchivosBinarios {
 
         try {        
             p.numero = dis.readUTF();
-            p.premio = dis.readInt();
+            p.numero = dis.readInt();
         } catch (IOException ex) {
             p = null;
         }
         return p;
+    }
+     
+     public static void EscribirDatosPremios(Premio p) {
+        System.out.println("Numero: " + p.numero);
+        System.out.println("Premi: " + p.numero);
+       
     }
 }
