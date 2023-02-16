@@ -31,21 +31,13 @@ public class ArchivosBinarios {
     public static void GrabarPremiosBinario() {
         DataOutputStream dos = AbrirFicheroEscrituraBinario(LOTERIA, true, true);
         Premio p = this_lista;
-        GrabarDatosClienteBinario(dos);
-        CerrarFicheroBinarioOutput(dos);
-
-    }
-    
-    public static void GrabarDatosClienteBinario(DataOutputStream dos, Premio p) {
-
-        try {            
+        try {
             dos.writeUTF(p.numero);
             dos.writeInt(p.premio);
-            
         } catch (IOException ex) {
             Logger.getLogger(ArchivosBinarios.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+        CerrarFicheroBinarioOutput(dos);
     }
 
     public static File AbrirFichero(String nomFichero, boolean crear) {
