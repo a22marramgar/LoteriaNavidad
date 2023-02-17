@@ -88,8 +88,8 @@ public class Idiomas {
             if (archivos.isDirectory()) {
                 ArchivosEnCarpeta(archivos);
             } else {
-                //if(archivos.getName()!=null){
-                    listaidiomas.add(archivos.getName());
+                //if(archivos.getName()!=null){ 
+                    listaidiomas.add(archivos.getName().substring(0, archivos.getName().length()-4));
                 //}
             }
         }
