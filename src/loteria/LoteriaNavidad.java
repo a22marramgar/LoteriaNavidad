@@ -17,10 +17,10 @@ public class LoteriaNavidad {
         boolean creado = false;
 
         while (opcio != 4) {
-            opcio = Menu(idioma.idiomaSel[24],
-        idioma.idiomaSel[25],
-        idioma.idiomaSel[26],
-        idioma.idiomaSel[27]);
+            opcio = Menu(FRASE(24),
+        FRASE(25),
+        FRASE(26),
+        FRASE(27));
 
             switch (opcio) {
                 case 1:                    
@@ -33,7 +33,7 @@ public class LoteriaNavidad {
                     VeureLlista(creado, sim);
             }
         }
-        System.out.println(idioma.idiomaSel[13]);
+        System.out.println(FRASE(13));
 
     }
     
@@ -47,7 +47,7 @@ public class LoteriaNavidad {
         if (creado) {
             sim.Mostrar();
         } else {
-            System.out.println(idioma.idiomaSel[14]);
+            System.out.println(FRASE(14));
         }
     }
 
@@ -60,15 +60,15 @@ public class LoteriaNavidad {
     public static void Buscar(boolean creado, Simulacion sim) {
         if (creado) {
             Comprobacio comprobar_numero = new Comprobacio(sim.GetPremios());
-            System.out.println(idioma.idiomaSel[15]);
-            int numero1 = escollirOpcio(0, 99999,idioma.idiomaSel[15]);
+            System.out.println(FRASE(15));
+            int numero1 = escollirOpcio(0, 99999,FRASE(15));
             String num = String.format("%05d", numero1);
-            System.out.println(idioma.idiomaSel[16]);
+            System.out.println(FRASE(16));
             int precio = llegirInt();
             System.out.println(comprobar_numero.Resultat(num, precio));
 
         } else {
-            System.out.println(idioma.idiomaSel[17]);
+            System.out.println(FRASE(17));
         }
     }
 
@@ -83,19 +83,19 @@ public class LoteriaNavidad {
     public static boolean Simulacion(boolean creado, Simulacion sim) {
         
         if (creado) {
-            System.out.println(idioma.idiomaSel[18]);
-            System.out.println("1. "+ idioma.idiomaSel[19]);
-            System.out.println("2. "+ idioma.idiomaSel[20]);
-            if (escollirOpcio(1, 2,idioma.idiomaSel[18]) == 1) {
-                System.out.println(idioma.idiomaSel[21]);
+            System.out.println(FRASE(18));
+            System.out.println("1. "+ FRASE(19));
+            System.out.println("2. "+ FRASE(20));
+            if (escollirOpcio(1, 2,FRASE(18)) == 1) {
+                System.out.println(FRASE(21));
                 creado = sim.IniciarSimulacion();
-                System.out.println(idioma.idiomaSel[22]);
+                System.out.println(FRASE(22));
                 
             }
         } else {
-            System.out.println(idioma.idiomaSel[21]);
+            System.out.println(FRASE(21));
             creado = sim.IniciarSimulacion();
-            System.out.println(idioma.idiomaSel[22]);
+            System.out.println(FRASE(22));
         }
         return creado;
     }

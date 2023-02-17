@@ -109,26 +109,26 @@ public class Simulacion {
 
         for (Premio p : this._Lista) {
             if (p.getPremio() == PRIMERPREMIO) {
-                System.out.println(idioma.idiomaSel[1]+idioma.idiomaSel[0]+" (" + p.getPremio() + "€): " + p.getNumero());
+                System.out.println(FRASE(1)+FRASE(0)+" (" + p.getPremio() + "€): " + p.getNumero());
             }
 
         }
         for (Premio p : this._Lista) {
             if (p.getPremio() == SEGUNDOPREMIO) {
-                System.out.println(idioma.idiomaSel[2]+idioma.idiomaSel[0]+" (" + p.getPremio() + "€): " + p.getNumero());
+                System.out.println(FRASE(2)+FRASE(0)+" (" + p.getPremio() + "€): " + p.getNumero());
             }
 
         }
         for (Premio p : this._Lista) {
             if (p.getPremio() == TERCERPREMIO) {
-                System.out.println(idioma.idiomaSel[3]+idioma.idiomaSel[0]+" (" + p.getPremio() + "€): " + p.getNumero());
+                System.out.println(FRASE(3)+FRASE(0)+" (" + p.getPremio() + "€): " + p.getNumero());
             }
 
         }
         for (Premio p : this._Lista) {
             if (p.getPremio() == CUARTOS) {
                 if (contador_cuartos == 2) {
-                    System.out.print(idioma.idiomaSel[4]+idioma.idiomaSel[0]+"s (" + p.getPremio() + "€): " + p.getNumero());
+                    System.out.print(FRASE(4)+FRASE(0)+"s (" + p.getPremio() + "€): " + p.getNumero());
                     contador_cuartos--;
                 } else {
                     System.out.println(", " + p.getNumero());
@@ -139,7 +139,7 @@ public class Simulacion {
         for (Premio p : this._Lista) {
             if (p.getPremio() == QUINTOS) {
                 if (contador_quintos == 8) {
-                    System.out.print(idioma.idiomaSel[5]+idioma.idiomaSel[0]+"s (" + p.getPremio() + "€): " + p.getNumero());
+                    System.out.print(FRASE(5)+FRASE(0)+"s (" + p.getPremio() + "€): " + p.getNumero());
                     contador_quintos--;
                 } else {
                     System.out.print(", " + p.getNumero());
