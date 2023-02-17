@@ -77,7 +77,6 @@ public class Idiomas {
     public static String Selector(ArrayList<String> listaDeIdiomas) {
         int elegido;
         String eleccion;
-        System.out.println("-------------------");
         elegido = MenuAL(listaDeIdiomas);
         eleccion = "./lang/"+listaDeIdiomas.get(elegido-1);
         return eleccion;
