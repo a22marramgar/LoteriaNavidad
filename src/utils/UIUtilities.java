@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -197,6 +198,17 @@ public class UIUtilities {
         int num=1;
         System.out.println("Options");
         for(String a:opciones){
+            System.out.println(num+". "+a);
+            num++;
+        }
+        opcio = escollirOpcio(1, num,"Invalid");
+        return opcio;
+    }
+    public static int MenuAL(ArrayList<String> datos) {
+        int opcio;
+        int num=1;
+        System.out.println("--------------");
+        for (String a : datos) {
             System.out.println(num+". "+a);
             num++;
         }

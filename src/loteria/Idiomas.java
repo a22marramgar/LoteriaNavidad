@@ -3,8 +3,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package loteria;
+
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import static utils.UIUtilities.*;
@@ -19,55 +22,33 @@ public class Idiomas {
 
     public Idiomas() {
     }
-    String[] idiomaSel;
-    public static final String[] LISTA_FRASES = 
-/*0*/       {"",
-        
-/*2*/       "", "", "","", "", //Simulacio
-        
-/*3*/       "","", // Resultat
-            "", "","","",
-            "", 
-        
-/*4*/       "", "", // Main
-        
-/*5*/       "", //Buscar
-            "",
-            "",
-        
-/*6*/       "", "", "", // Menu/simulacion
-            "", "",
-        
-/*7*/       "", // Menu
-            "",
-            "",
-            "",
-            ""};
-        
-    public static Idiomas SelectorIdioma() {
+    public static final ArrayList<String> LISTA_FRASES = new ArrayList<>();
+
+    public static ArrayList<String> SelectorIdioma() {
         if (idioma == null) {
             idioma = new Idiomas();
         }
-        String idiomaElegido = Selector();
+        final File archivosIdiomas = new File("./lang");
+        ArrayList<String> posibilidades = ArchivosEnCarpeta(archivosIdiomas);
+        String idiomaElegido = Selector(posibilidades);
         SacarFrases(idiomaElegido);
-        idioma.idiomaSel= LISTA_FRASES;
-        
-        return idioma;
+        return LISTA_FRASES;
     }
-    
+
     public static void SacarFrases(String nom) {
         // Creamos el enlace con el fichero en el disco
         BufferedReader buf = AbrirFicheroLectura(nom, true);
 
         String linea = LeerLinea(buf);
-        int pos=0;
+        int pos = 0;
         while (linea != null) {
-            LISTA_FRASES[pos]= linea;
+            LISTA_FRASES.add(linea);
             linea = LeerLinea(buf);
             pos++;
         }
         CerrarFichero(buf);
     }
+
     public static void CerrarFichero(BufferedReader br) {
         try {
             br.close();
@@ -75,6 +56,7 @@ public class Idiomas {
             Logger.getLogger(Idiomas.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
     public static String LeerLinea(BufferedReader br) {
         String linea = null;
 
@@ -86,20 +68,36 @@ public class Idiomas {
 
         return linea;
     }
-        /**
-     * 
+
+    /**
+     *
+     * @param listaDeIdiomas
      * @return Devuelve el idioma que se usara
      */
-    public static String Selector(){
+    public static String Selector(ArrayList<String> listaDeIdiomas) {
         int elegido;
         String eleccion;
-        System.out.println("Elige un idioma:");
-        elegido = Menu("Catala","Castella");
-        if(elegido==1){
-            eleccion="./catala.txt";
-        }else{
-            eleccion="./castella.txt";
-        }
+        System.out.println("-------------------");
+        elegido = MenuAL(listaDeIdiomas);
+        eleccion = "./lang/"+listaDeIdiomas.get(elegido-1);
         return eleccion;
+    }
+
+    public static ArrayList ArchivosEnCarpeta(final File carpeta) {
+        ArrayList<String> listaidiomas=new ArrayList<>();
+        for (final File archivos : carpeta.listFiles()) {
+            if (archivos.isDirectory()) {
+                ArchivosEnCarpeta(archivos);
+            } else {
+                //if(archivos.getName()!=null){
+                    listaidiomas.add(archivos.getName());
+                //}
+            }
+        }
+        return listaidiomas;
+    }
+    public static String FRASE(int indice){
+        String frase= LISTA_FRASES.get(indice);
+        return frase;
     }
 }
