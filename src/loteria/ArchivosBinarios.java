@@ -4,14 +4,12 @@
  */
 package loteria;
 
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import static loteria.Idiomas.idioma;
+import static loteria.Simulacion.PRIMERPREMIO;
 
 /**
  *
@@ -21,23 +19,29 @@ public class ArchivosBinarios {
 
     public static final String LOTERIA = "./loteria.bin";
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
+
+        Simulacion sim = new Simulacion();
+        sim.IniciarSimulacion();
+
+        GrabarPremiosBinario(sim.GetPremios());
+        ArrayList<Premio> lista = new ArrayList<>();
     }
 
-    public static void GrabarPremiosBinario() {
-        DataOutputStream dos = AbrirFicheroEscrituraBinario(LOTERIA, true, true);
-        Premio p = this_lista;
-        try {
-            dos.writeUTF(p.numero);
-            dos.writeInt(p.premio);
-        } catch (IOException ex) {
-            Logger.getLogger(ArchivosBinarios.class.getName()).log(Level.SEVERE, null, ex);
+    /**
+     * @param Lista
+     */
+    public static void GrabarPremiosBinario(ArrayList<Premio> Lista) {
+        ObjectOutputStream oos = AbrirFicheroEscrituraBinario(LOTERIA, true, false);
+        for (Premio p : Lista) {
+            try {
+                oos.writeObject(p);
+            } catch (IOException ex) {
+                Logger.getLogger(ArchivosBinarios.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
-        CerrarFicheroBinarioOutput(dos);
+
+        CerrarFicheroBinarioOutput(oos);
     }
 
     public static File AbrirFichero(String nomFichero, boolean crear) {
@@ -59,8 +63,8 @@ public class ArchivosBinarios {
         return result;
     }
 
-    public static DataOutputStream AbrirFicheroEscrituraBinario(String nomFichero, boolean crear, boolean blnAnyadir) {
-        DataOutputStream dos = null;
+    public static ObjectOutputStream AbrirFicheroEscrituraBinario(String nomFichero, boolean crear, boolean blnAnyadir) {
+        ObjectOutputStream oos = null;
         File f = AbrirFichero(nomFichero, crear);
 
         if (f != null) {
@@ -69,28 +73,28 @@ public class ArchivosBinarios {
             try {
                 writer = new FileOutputStream(f, blnAnyadir);
                 // PrintWriter para poder escribir más comodamente
-                dos = new DataOutputStream(writer);
+                oos = new ObjectOutputStream(writer);
             } catch (IOException ex) {
                 Logger.getLogger(ArchivosBinarios.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
 
-        return dos;
+        return oos;
     }
 
-    public static void CerrarFicheroBinarioOutput(DataOutputStream dos) {
+    public static void CerrarFicheroBinarioOutput(ObjectOutputStream oos) {
 
         try {
-            dos.flush();
-            dos.close();
+            oos.flush();
+            oos.close();
+
         } catch (IOException ex) {
             Logger.getLogger(ArchivosBinarios.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }
 
-    public static DataInputStream AbrirFicheroLecturaBinario(String nomFichero, boolean crear) {
-        DataInputStream dis = null;
+    public static ObjectInputStream AbrirFicheroLecturaBinario(String nomFichero, boolean crear) {
+        ObjectInputStream ois = null;
         File f = AbrirFichero(nomFichero, crear);
 
         if (f != null) {
@@ -99,50 +103,60 @@ public class ArchivosBinarios {
             try {
                 reader = new FileInputStream(f);
                 // PrintWriter para poder escribir más comodamente
-                dis = new DataInputStream(reader);
+                ois = new ObjectInputStream(reader);
             } catch (IOException ex) {
                 Logger.getLogger(ArchivosBinarios.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
 
-        return dis;
+        return ois;
     }
-    
-     public static void CerrarFicheroBinarioInput(DataInputStream dis) {
+
+    public static void CerrarFicheroBinarioInput(ObjectInputStream ois) {
         try {
-            dis.close();
+            ois.close();
         } catch (IOException ex) {
             Logger.getLogger(ArchivosBinarios.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-    public static void LeerPremiosBinario() {
-        DataInputStream dis = AbrirFicheroLecturaBinario(LOTERIA, true);
+    public static ArrayList<Premio> CargarLista(String LOTERIA) {
 
-        Premio p = LeerDatosPremiosBinario(dis);
-        while (p != null) {
-            EscribirDatosPremios(p);
-            p = LeerDatosPremiosBinario(dis);
+        ArrayList<Premio> lista = new ArrayList();
+        ObjectInputStream ois = AbrirFicheroLecturaBinario(LOTERIA, true);
+
+        while (lista != null) {
+
+            try {
+                Premio p = (Premio) ois.readObject();
+                lista.add(p);
+            } catch (IOException | ClassNotFoundException ex) {
+                Logger.getLogger(ArchivosBinarios.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
         }
-
-        CerrarFicheroBinarioInput(dis);
-    }
-    
-     public static Premio LeerDatosPremiosBinario(DataInputStream dis) {
-        Premio p = new Premio();
-
-        try {        
-            p.numero = dis.readUTF();
-            p.numero = dis.readInt();
-        } catch (IOException ex) {
-            p = null;
+        CerrarFicheroBinarioInput(ois);
+        for (Premio p : lista) {
+            System.out.println("Premio:" + p.getPremio() + "Numero premiado: " + p.getNumero());
         }
-        return p;
+        return lista;
     }
-     
-     public static void EscribirDatosPremios(Premio p) {
-        System.out.println("Numero: " + p.numero);
-        System.out.println("Premi: " + p.numero);
-       
+
+    public static ArrayList<Premio> GrabarLista(String LOTERIA) {
+
+        ArrayList<Premio> lista = new ArrayList();
+        ObjectInputStream ois = AbrirFicheroLecturaBinario(LOTERIA, true);
+
+        while (ois != null) {
+            try {
+                Premio p = (Premio) ois.readObject();
+            } catch (IOException ex) {
+                Logger.getLogger(ArchivosBinarios.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(ArchivosBinarios.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return lista;
     }
+
 }

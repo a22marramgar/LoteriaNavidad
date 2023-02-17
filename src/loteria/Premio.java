@@ -1,11 +1,13 @@
 package loteria;
 
+import java.io.Serializable;
+
 /**
  * Emmagatzemarem a la clase Premio el numero i el premi que ha tocat
  * @author ausias
  */
 
-public class Premio {
+public class Premio implements Serializable {
 
     private String _numero;
     private Integer _premio;
