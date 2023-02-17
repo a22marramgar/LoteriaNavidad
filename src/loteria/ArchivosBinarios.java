@@ -19,14 +19,14 @@ public class ArchivosBinarios {
 
     public static final String LOTERIA = "./loteria.bin";
 
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
 
         Simulacion sim = new Simulacion();
         sim.IniciarSimulacion();
 
         GrabarPremiosBinario(sim.GetPremios());
         ArrayList<Premio> lista = new ArrayList<>();
-    }
+    }*/
 
     /**
      * @param Lista
