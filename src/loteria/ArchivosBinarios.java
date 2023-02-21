@@ -17,22 +17,14 @@ import static loteria.Simulacion.PRIMERPREMIO;
  */
 public class ArchivosBinarios {
 
-    public static final String LOTERIA = "./loteria.bin";
-
-    /*public static void main(String[] args) {
-
-        Simulacion sim = new Simulacion();
-        sim.IniciarSimulacion();
-
-        GrabarPremiosBinario(sim.GetPremios());
-        ArrayList<Premio> lista = new ArrayList<>();
-    }*/
+    public static final int TOTALPREMIOS = 1807;
 
     /**
      * @param Lista
      */
-    public static void GrabarPremiosBinario(ArrayList<Premio> Lista) {
-        ObjectOutputStream oos = AbrirFicheroEscrituraBinario(LOTERIA, true, false);
+    public static void GrabarPremiosBinario(ArrayList<Premio> Lista, int any) {
+        ObjectOutputStream oos = AbrirFicheroEscrituraBinario("./loteria" + any + ".bin", true, false);
+
         for (Premio p : Lista) {
             try {
                 oos.writeObject(p);
@@ -120,43 +112,21 @@ public class ArchivosBinarios {
         }
     }
 
-    public static ArrayList<Premio> CargarLista(String LOTERIA) {
+    public static ArrayList<Premio> CargarLista(int any) {
 
         ArrayList<Premio> lista = new ArrayList();
-        ObjectInputStream ois = AbrirFicheroLecturaBinario(LOTERIA, true);
+        ObjectInputStream ois = AbrirFicheroLecturaBinario("./loteria" + any + ".bin", true);
 
-        while (lista != null) {
-
+        for (int i = 0; i != TOTALPREMIOS; i++) {
             try {
                 Premio p = (Premio) ois.readObject();
                 lista.add(p);
             } catch (IOException | ClassNotFoundException ex) {
                 Logger.getLogger(ArchivosBinarios.class.getName()).log(Level.SEVERE, null, ex);
             }
-
         }
         CerrarFicheroBinarioInput(ois);
-        for (Premio p : lista) {
-            System.out.println("Premio:" + p.getPremio() + "Numero premiado: " + p.getNumero());
-        }
         return lista;
-    }
-
-    public static ArrayList<Premio> GrabarLista(String LOTERIA) {
-
-        ArrayList<Premio> lista = new ArrayList();
-        ObjectInputStream ois = AbrirFicheroLecturaBinario(LOTERIA, true);
-
-        while (ois != null) {
-            try {
-                Premio p = (Premio) ois.readObject();
-            } catch (IOException ex) {
-                Logger.getLogger(ArchivosBinarios.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (ClassNotFoundException ex) {
-                Logger.getLogger(ArchivosBinarios.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-        return lista;
-    }
+    }    
 
 }

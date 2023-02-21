@@ -20,7 +20,7 @@ public class LoteriaNavidad {
             opcio = Menu(FRASE(24),
         FRASE(25),
         FRASE(26),
-        FRASE(27));
+        FRASE(27),"Guardar fichero");
 
             switch (opcio) {
                 case 1:                    
