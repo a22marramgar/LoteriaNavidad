@@ -99,6 +99,13 @@ public class LoteriaNavidad {
         }
         return creado;
     }
+    
+    public static boolean NuevaSimulacion(Simulacion){
+        int any = llegirInt();
+        GrabarPremiosBinario(ArrayList<Premio> Lista, int any);
+        CargarLista(int any);
+       
+    }
 
 
 }

@@ -34,8 +34,9 @@ public class ArchivosBinarios {
         }
 
         CerrarFicheroBinarioOutput(oos);
-    }
+    }   
 
+    
     public static File AbrirFichero(String nomFichero, boolean crear) {
         File result = null;
         result = new File(nomFichero);
@@ -113,7 +114,7 @@ public class ArchivosBinarios {
     }
 
     public static ArrayList<Premio> CargarLista(int any) {
-
+        
         ArrayList<Premio> lista = new ArrayList();
         ObjectInputStream ois = AbrirFicheroLecturaBinario("./loteria" + any + ".bin", true);
 
