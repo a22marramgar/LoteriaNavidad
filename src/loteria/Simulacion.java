@@ -151,5 +151,7 @@ public class Simulacion {
         }
         System.out.println("");
     }
-
+    public void NuevaLista(ArrayList<Premio> LoteriaAnyo){
+        this._Lista=LoteriaAnyo;
+    } 
 }
