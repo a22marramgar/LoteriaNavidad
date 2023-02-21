@@ -34,9 +34,8 @@ public class ArchivosBinarios {
         }
 
         CerrarFicheroBinarioOutput(oos);
-    }   
+    }
 
-    
     public static File AbrirFichero(String nomFichero, boolean crear) {
         File result = null;
         result = new File(nomFichero);
@@ -114,20 +113,27 @@ public class ArchivosBinarios {
     }
 
     public static ArrayList<Premio> CargarLista(int any) {
-        
-        ArrayList<Premio> lista = new ArrayList();
-        ObjectInputStream ois = AbrirFicheroLecturaBinario("./loteria" + any + ".bin", true);
 
-        for (int i = 0; i != TOTALPREMIOS; i++) {
-            try {
-                Premio p = (Premio) ois.readObject();
-                lista.add(p);
-            } catch (IOException | ClassNotFoundException ex) {
-                Logger.getLogger(ArchivosBinarios.class.getName()).log(Level.SEVERE, null, ex);
+        ArrayList<Premio> lista = new ArrayList();
+        File fitxer;
+        fitxer = new File("./loteria" + any + ".bin");
+
+        if (!fitxer.exists()) {
+            GrabarPremiosBinario(lista, any);
+
+        } else {
+            ObjectInputStream ois = AbrirFicheroLecturaBinario("./loteria" + any + ".bin", true);
+            for (int i = 0; i != TOTALPREMIOS; i++) {
+                try {
+                    Premio p = (Premio) ois.readObject();
+                    lista.add(p);
+                } catch (IOException | ClassNotFoundException ex) {
+                    Logger.getLogger(ArchivosBinarios.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
+            CerrarFicheroBinarioInput(ois);            
         }
-        CerrarFicheroBinarioInput(ois);
         return lista;
-    }    
+    }
 
 }

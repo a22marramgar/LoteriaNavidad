@@ -101,9 +101,8 @@ public class LoteriaNavidad {
     }
     
     public static boolean NuevaSimulacion(Simulacion){
-        int any = llegirInt();
-        GrabarPremiosBinario(ArrayList<Premio> Lista, int any);
-        CargarLista(int any);
+        int any = llegirInt();        
+        ArchivosBinarios.CargarLista(1994);
        
     }
 
