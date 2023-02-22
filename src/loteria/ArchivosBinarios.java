@@ -23,7 +23,7 @@ public class ArchivosBinarios {
      * @param Lista
      */
     public static void GrabarPremiosBinario(ArrayList<Premio> Lista, int any) {
-        ObjectOutputStream oos = AbrirFicheroEscrituraBinario("./loteria" + any + ".bin", true, false);
+        ObjectOutputStream oos = AbrirFicheroEscrituraBinario("./simulaciones/loteria" + any + ".bin", true, false);
 
         for (Premio p : Lista) {
             try {
@@ -115,7 +115,7 @@ public class ArchivosBinarios {
     public static ArrayList<Premio> CargarLista(int any) {
         ArrayList<Premio> lista = new ArrayList();
         File fitxer;
-        fitxer = new File("./loteria" + any + ".bin");
+        fitxer = new File("./simulaciones/loteria" + any + ".bin");
 
         if (!fitxer.exists()) {
             Simulacion sim = new Simulacion();
@@ -124,7 +124,7 @@ public class ArchivosBinarios {
             GrabarPremiosBinario(lista, any);
 
         } else {
-            ObjectInputStream ois = AbrirFicheroLecturaBinario("./loteria" + any + ".bin", true);
+            ObjectInputStream ois = AbrirFicheroLecturaBinario("./simulaciones/loteria" + any + ".bin", true);
             for (int i = 0; i != TOTALPREMIOS; i++) {
                 try {
                     Premio p = (Premio) ois.readObject();
