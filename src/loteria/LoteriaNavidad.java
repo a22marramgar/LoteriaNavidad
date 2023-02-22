@@ -98,7 +98,7 @@ public class LoteriaNavidad {
 
         System.out.println("De quin any vols consultar la loteria?");
         int any = llegirInt();
-        sim = ArchivosBinarios.CargarLista(any);
+        sim.NuevaLista(ArchivosBinarios.CargarLista(any));
         System.out.println("Loteria del any " + any + " iniciada");
 
     }
