@@ -112,16 +112,18 @@ public class ArchivosBinarios {
         }
     }
 
-    public static ArrayList<Premio> CargarLista(int any) {
+    public static Simulacion CargarLista(int any) {
+        Simulacion sim = new Simulacion();
 
-        ArrayList<Premio> lista = new ArrayList();
         File fitxer;
         fitxer = new File("./loteria" + any + ".bin");
 
         if (!fitxer.exists()) {
-            GrabarPremiosBinario(lista, any);
+            sim.IniciarSimulacion();
+            GrabarPremiosBinario(sim.GetPremios(), any);
 
         } else {
+            ArrayList<Premio> lista = new ArrayList();
             ObjectInputStream ois = AbrirFicheroLecturaBinario("./loteria" + any + ".bin", true);
             for (int i = 0; i != TOTALPREMIOS; i++) {
                 try {
@@ -131,9 +133,10 @@ public class ArchivosBinarios {
                     Logger.getLogger(ArchivosBinarios.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-            CerrarFicheroBinarioInput(ois);            
+            sim.NuevaLista(lista);
+            CerrarFicheroBinarioInput(ois);
         }
-        return lista;
+        return sim;
     }
 
 }
