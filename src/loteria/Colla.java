@@ -71,10 +71,9 @@ public class Colla {
         Comprobacio com = new Comprobacio(ArchivosBinarios.CargarLista(this._anyJugat));
         for (Membre membre : this._lista) {
             System.out.print("| "+String.format("%-17s", membre.getNom())
-            +"| "+membre.getNumero()+" | "+String.format("%7s-", membre.getImport())
-            +"| "+String.format(_"%-7s",com.Comprobar(membre.getNumero(), 200f))));
+            +"|  "+membre.getNumero()+" | "+String.format("%6s", membre.getImport())
+            +" | "+String.format("%9s",com.Comprobar(membre.getNumero(), 200))+" |");
         }
         System.out.println("+------------------+--------+--------+-----------+");
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
