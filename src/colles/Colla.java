@@ -1,9 +1,11 @@
 /**
  *
  */
-package loteria;
+package colles;
 
 import java.util.ArrayList;
+import loteria.ArchivosBinarios;
+import loteria.Comprobacio;
 
 /**
  * @author ausias
@@ -12,9 +14,9 @@ import java.util.ArrayList;
 public class Colla {
 
     private String _nomColla;
+    private int _anyJugat;
     private int _nombreMembres;
     private double _importTotal;
-    private int _anyJugat;
     private ArrayList<Membre> _lista;
 
     public Colla(String nomColla, int anyJugat) {
@@ -47,7 +49,14 @@ public class Colla {
     }
     
     private boolean comprobarRepetido(Membre nouMembre) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        boolean repetido = false;
+        for(Membre m : this._lista){
+            if (m.getNom().equals(nouMembre.getNom()) 
+                    && m.getNumero().equals(nouMembre.getNumero())){
+                repetido = true;
+            }
+        }
+        return repetido;
     }
     
     public void mostrar(){
@@ -56,24 +65,30 @@ public class Colla {
         System.out.println("Diners: "+this._importTotal);
         System.out.println("Premi: "+calcularPremioTotal());
         System.out.println();
-        System.out.println("MEMBRES");
+        System.out.println("Membres: "+this._nombreMembres);
         mostrarTablaMembres();
     }
 
     private double calcularPremioTotal() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        double premioTotal = 0;
+        Comprobacio com = new Comprobacio (ArchivosBinarios.CargarLista(this._anyJugat));
+        for(Membre m : this._lista){
+            premioTotal += com.Comprobar(m.getNumero(), 200);
+        }
+        return premioTotal;
     }
 
     private void mostrarTablaMembres() {
-        System.out.println("+------------------+--------+--------+------------+");
-        System.out.println("|       NOM        | NUMERO | DINERS |   PREMI    |");
-        System.out.println("+------------------+--------+--------+------------+");
+        System.out.println("+------------------+--------+--------+------------+------------+");
+        System.out.println("|       NOM        | NUMERO | DINERS |   PREMI    |   CALCUL   |");
+        System.out.println("+------------------+--------+--------+------------+------------+");
         Comprobacio com = new Comprobacio(ArchivosBinarios.CargarLista(this._anyJugat));
-        for (Membre membre : this._lista) {
-            System.out.print("| "+String.format("%-17s", membre.getNom())
-            +"|  "+membre.getNumero()+" | "+String.format("%6s", membre.getImport())
-            +" | "+String.format("%10s",com.Comprobar(membre.getNumero(), 200))+" |");
+        for (Membre m : this._lista) {
+            System.out.print("| "+String.format("%-17s", m.getNom())
+            +"|  "+m.getNumero()+" | "+String.format("%6s", m.getImport())
+            +" | "+String.format("%10s",com.Comprobar(m.getNumero(), 200))
+            +" | "+String.format("%10s",com.Comprobar(m.getNumero(), m.getImport()))+" |");
         }
-        System.out.println("+------------------+--------+--------+------------+");
+        System.out.println("+------------------+--------+--------+------------+------------+");
     }
 }
