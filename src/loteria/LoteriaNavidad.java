@@ -19,10 +19,10 @@ public class LoteriaNavidad {
         boolean creado = false;
 
         while (opcio != 4) {
-            opcio = Menu(FRASE(24),
-                    FRASE(25),
-                    FRASE(26),
-                    FRASE(27));
+            opcio = Menu(FRASE("iniciar"),
+                    FRASE("buscar"),
+                    FRASE("verlista"),
+                    FRASE("salir"));
 
             switch (opcio) {
                 case 1:
@@ -35,7 +35,7 @@ public class LoteriaNavidad {
                     VeureLlista(sim);
             }
         }
-        System.out.println(FRASE(13));
+        System.out.println(FRASE("adios"));
 
     }
 
@@ -58,10 +58,10 @@ public class LoteriaNavidad {
      */
     public static void Buscar(Simulacion sim) {
         Comprobacio comprobar_numero = new Comprobacio(sim.GetPremios());
-        System.out.println(FRASE(15));
-        int numero1 = escollirOpcio(0, 99999, FRASE(15));
+        System.out.println(FRASE("introducenum"));
+        int numero1 = escollirOpcio(0, 99999, FRASE("introducenum"));
         String num = String.format("%05d", numero1);
-        System.out.println(FRASE(16));
+        System.out.println(FRASE("introduceprecio"));
         int precio = llegirInt();
         System.out.println(comprobar_numero.Resultat(num, precio));
 

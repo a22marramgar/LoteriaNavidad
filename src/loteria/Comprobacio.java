@@ -238,24 +238,24 @@ public class Comprobacio {
         if (total != 0) {
             List<String> premios = new ArrayList<>();
             if (this._premio) {
-                premios.add(FRASE(0).toUpperCase());
+                premios.add(FRASE("premio").toUpperCase());
             }
             if (this._aproximacion) {
-                premios.add(FRASE(8));
+                premios.add(FRASE("aprox"));
             }
             if (this._centenas) {
-                premios.add(FRASE(9));
+                premios.add(FRASE("centena"));
             }
             if (this._ultimas) {
-                premios.add(FRASE(10));
+                premios.add(FRASE("ultimas2"));
             }
             if (this._reintegro) {
-                premios.add(FRASE(11));
+                premios.add(FRASE("reintegro"));
             }
             String premiosString = String.join(", ", premios);
-            missatge = FRASE(6)+" " + total + "€!\n"+FRASE(7)+": " + premiosString;
+            missatge = FRASE("felicidades")+" " + total + "€!\n"+FRASE("reparticion")+": " + premiosString;
         } else {
-            missatge = FRASE(12);
+            missatge = FRASE("losiento");
         }
         return missatge;
     }
