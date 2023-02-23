@@ -1,28 +1,27 @@
 premio=Gewinn
 primero=Erster Preis
-segundo = Zweiter Preis
-segundo =Dritter Preis
-segundo =Viertel Preise
-segundo =Fünftel Preise
-segundo =Herzlichen Glückwunsch, du hast gewonnen
-segundo =Dieser Preis wird zwischen aufgeteilt
-segundo =Annäherung
-Hunderter
-Letzte 2 Ziffern
-Rückzahlung
-Es tut uns leid, diese Nummer hat keinen Preis.
-Tschüss, bis zum nächsten Mal
-Bitte starten Sie eine neue Simulation
-Geben Sie die zu überprüfende Nummer ein
-Geben Sie den von Ihnen gezahlten Preis ein
-Bitte starten Sie eine neue Simulation
-Gibt es bereits eine Simulation, eine neue erstellen?
-Ja
-Nein
-Simulation gestartet ...
-Fertiggestellt.
-Optionen
-Simulation starten
-Preis suchen
-Preisliste anzeigen
-Verlassen
+segundo=Zweiter Preis
+tercero=Dritter Preis
+cuartos=Viertel Preise
+quintos=Fünftel Preise
+felicidades=Herzlichen Glückwunsch, du hast gewonnen
+reparticion=Dieser Preis wird zwischen aufgeteilt
+aprox=Annäherung
+centena=Hunderter
+ultimas2=Letzte 2 Ziffern
+reintegro=Rückzahlung
+losiento=Es tut uns leid, diese Nummer hat keinen Preis.
+adios=Tschüss, bis zum nächsten Mal
+porfavor=Bitte starten Sie eine neue Simulation
+introducenum=Geben Sie die zu überprüfende Nummer ein
+introduceprecio=Geben Sie den von Ihnen gezahlten Preis ein
+existe=Gibt es bereits eine Simulation, eine neue erstellen?
+si=Ja
+no=Nein
+iniciando=Simulation gestartet ...
+finalizado=Fertiggestellt.
+opciones=Optionen
+iniciar=Simulation starten
+buscar=Preis suchen
+verlista=Preisliste anzeigen
+salir=Verlassen

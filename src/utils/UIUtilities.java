@@ -196,7 +196,7 @@ public class UIUtilities {
     public static int Menu(String ...opciones) {
         int opcio;
         int num=1;
-        System.out.println("Options");
+        System.out.println("---------------");
         for(String a:opciones){
             System.out.println(num+". "+a);
             num++;
