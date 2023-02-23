@@ -65,15 +65,15 @@ public class Colla {
     }
 
     private void mostrarTablaMembres() {
-        System.out.println("+------------------+--------+--------+-----------+");
-        System.out.println("|       NOM        | NUMERO | DINERS |   PREMI   |");
-        System.out.println("+------------------+--------+--------+-----------+");
+        System.out.println("+------------------+--------+--------+------------+");
+        System.out.println("|       NOM        | NUMERO | DINERS |   PREMI    |");
+        System.out.println("+------------------+--------+--------+------------+");
         Comprobacio com = new Comprobacio(ArchivosBinarios.CargarLista(this._anyJugat));
         for (Membre membre : this._lista) {
             System.out.print("| "+String.format("%-17s", membre.getNom())
             +"|  "+membre.getNumero()+" | "+String.format("%6s", membre.getImport())
-            +" | "+String.format("%9s",com.Comprobar(membre.getNumero(), 200))+" |");
+            +" | "+String.format("%10s",com.Comprobar(membre.getNumero(), 200))+" |");
         }
-        System.out.println("+------------------+--------+--------+-----------+");
+        System.out.println("+------------------+--------+--------+------------+");
     }
 }
