@@ -43,7 +43,7 @@ public class Idiomas {
         int elegido;
         String eleccion;
         elegido = MenuAL(listaDeIdiomas);
-        eleccion = "./lang/" + listaDeIdiomas.get(elegido - 1);
+        eleccion = "./lang/" + listaDeIdiomas.get(elegido - 1)+".txt";
         return eleccion;
     }
 
@@ -64,7 +64,7 @@ public class Idiomas {
                 ArchivosEnCarpeta(archivos);
             } else {
                 //if(archivos.getName()!=null){ 
-                listaidiomas.add(archivos.getName());
+                listaidiomas.add(archivos.getName().substring(0, archivos.getName().length()-4));
                 //}
             }
         }
