@@ -24,6 +24,7 @@ public class Colla {
         this._anyJugat = anyJugat;
         this._nombreMembres = 0;
         this._importTotal = 0;
+        this._lista = new ArrayList<>();
     }
 
     /**
@@ -84,10 +85,12 @@ public class Colla {
         System.out.println("+------------------+--------+--------+------------+------------+");
         Comprobacio com = new Comprobacio(ArchivosBinarios.CargarLista(this._anyJugat));
         for (Membre m : this._lista) {
+            double premio = com.Comprobar(m.getNumero(), 200);
+            double premioCalculo = com.Comprobar(m.getNumero(), m.getImport());
             System.out.print("| "+String.format("%-17s", m.getNom())
             +"|  "+m.getNumero()+" | "+String.format("%6s", m.getImport())
-            +" | "+String.format("%10s",com.Comprobar(m.getNumero(), 200))
-            +" | "+String.format("%10s",com.Comprobar(m.getNumero(), m.getImport()))+" |");
+            +" | "+String.format("%10s",premio)
+            +" | "+String.format("%10s",premioCalculo)+" |");
         }
         System.out.println("+------------------+--------+--------+------------+------------+");
     }
