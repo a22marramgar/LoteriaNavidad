@@ -4,26 +4,52 @@
  */
 package colles;
 
+import java.io.Serializable;
+
 /**
- *
+ * Emmagatzemarem a la classe Membre el nom, el numero, i l'import
  * @author ausias
  */
-class Membre {
+class Membre implements Serializable{
 
+    private String _nom;
+    private String _numero;
+    private double _import;
+    
+    /**
+     * Constructor de Membre
+     * @param nomMembre String
+     * @param numeroJugat String
+     * @param importMembre double
+     */
     Membre(String nomMembre, String numeroJugat, double importMembre) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this._nom = nomMembre;
+        this._numero = numeroJugat;
+        this._import = importMembre;
     }
 
+    /**
+     * 
+     * @return nom del Membre
+     */
     public String getNom() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return this._nom;
     }
 
+    /**
+     * 
+     * @return numero
+     */
     public String getNumero() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return this._numero;
     }
 
+    /**
+     * 
+     * @return import
+     */
     public double getImport() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return this._import;
     }
     
 }
