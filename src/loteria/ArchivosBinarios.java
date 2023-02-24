@@ -8,8 +8,6 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import static loteria.Idiomas.idioma;
-import static loteria.Simulacion.PRIMERPREMIO;
 
 /**
  *

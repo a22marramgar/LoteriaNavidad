@@ -3,7 +3,7 @@ package loteria;
 import java.util.Random;
 import java.util.ArrayList;
 import java.util.Collections;
-import static loteria.Idiomas.*;
+import static loteria.LoteriaNavidad.idioma;
 
 /**
  * Creara una simulacio com si fos el sorteig, simulant els bombos on sortiran
@@ -12,7 +12,7 @@ import static loteria.Idiomas.*;
  */
 
 public class Simulacion {
-
+    private int _anyo;
     private ArrayList<Premio> _Lista;
     public static final int PRIMERPREMIO = 4000000;
     public static final int SEGUNDOPREMIO = 1200000;
@@ -109,26 +109,26 @@ public class Simulacion {
 
         for (Premio p : this._Lista) {
             if (p.getPremio() == PRIMERPREMIO) {
-                System.out.println(FRASE("primero")+FRASE("premio")+" (" + p.getPremio() + "€): " + p.getNumero());
+                System.out.println(idioma.frase("primero")+" (" + p.getPremio() + "€): " + p.getNumero());
             }
 
         }
         for (Premio p : this._Lista) {
             if (p.getPremio() == SEGUNDOPREMIO) {
-                System.out.println(FRASE("segundo")+FRASE("premio")+" (" + p.getPremio() + "€): " + p.getNumero());
+                System.out.println(idioma.frase("segundo")+" (" + p.getPremio() + "€): " + p.getNumero());
             }
 
         }
         for (Premio p : this._Lista) {
             if (p.getPremio() == TERCERPREMIO) {
-                System.out.println(FRASE("tercero")+FRASE("premio")+" (" + p.getPremio() + "€): " + p.getNumero());
+                System.out.println(idioma.frase("tercero")+" (" + p.getPremio() + "€): " + p.getNumero());
             }
 
         }
         for (Premio p : this._Lista) {
             if (p.getPremio() == CUARTOS) {
                 if (contador_cuartos == 2) {
-                    System.out.print(FRASE("cuartos")+FRASE("premio")+"s (" + p.getPremio() + "€): " + p.getNumero());
+                    System.out.print(idioma.frase("cuartos")+" (" + p.getPremio() + "€): " + p.getNumero());
                     contador_cuartos--;
                 } else {
                     System.out.println(", " + p.getNumero());
@@ -139,7 +139,7 @@ public class Simulacion {
         for (Premio p : this._Lista) {
             if (p.getPremio() == QUINTOS) {
                 if (contador_quintos == 8) {
-                    System.out.print(FRASE("quinto")+FRASE("premio")+"s (" + p.getPremio() + "€): " + p.getNumero());
+                    System.out.print(idioma.frase("quintos")+" (" + p.getPremio() + "€): " + p.getNumero());
                     contador_quintos--;
                 } else {
                     System.out.print(", " + p.getNumero());
@@ -153,5 +153,12 @@ public class Simulacion {
     }
     public void NuevaLista(ArrayList<Premio> LoteriaAnyo){
         this._Lista=LoteriaAnyo;
-    } 
+    }
+    
+    public void setAnyo(int anyo){
+        this._anyo=anyo;
+    }
+    public int getAnyo(){
+        return this._anyo;
+    }
 }

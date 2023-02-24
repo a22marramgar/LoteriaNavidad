@@ -1,7 +1,9 @@
 package loteria;
 
+import colles.Colla;
+import java.io.File;
+import java.util.ArrayList;
 import static utils.UIUtilities.*;
-import static loteria.Idiomas.*;
 
 /**
  * Portara el menu principal, on s'executaran les altres clases, funcions i
@@ -10,32 +12,39 @@ import static loteria.Idiomas.*;
  * @author ausias
  */
 public class LoteriaNavidad {
-
+    final static File archivosIdiomas = new File("./lang");
+    public static Idiomas idioma;
+    public static Simulacion sim;
     public static void main(String[] args) {
-        SelectorIdioma();
-        Simulacion sim = new Simulacion();
-        NuevaSimulacion(sim);
+        idioma = new Idiomas(Selector(Idiomas.ArchivosEnCarpeta(archivosIdiomas)));
+        
+        sim = new Simulacion();
+        NuevaSimulacion();
         int opcio = 0;
         boolean creado = false;
 
-        while (opcio != 4) {
-            opcio = Menu(FRASE("iniciar"),
-                    FRASE("buscar"),
-                    FRASE("verlista"),
-                    FRASE("salir"));
+        while (opcio != 5) {
+            opcio = Menu(idioma.frase("iniciar"),
+                    idioma.frase("buscar"),
+                    idioma.frase("verlista"),idioma.frase("gestioncolla"),
+                    idioma.frase("salir"));
 
             switch (opcio) {
                 case 1:
-                    NuevaSimulacion(sim);
+                    NuevaSimulacion();
                     break;
                 case 2:
-                    Buscar(sim);
+                    Buscar();
                     break;
                 case 3:
-                    VeureLlista(sim);
+                    VeureLlista();
+                    break;
+                case 4:
+                    GestiondeCollas();
+                    break;
             }
         }
-        System.out.println(FRASE("adios"));
+        System.out.println(idioma.frase("adios"));
 
     }
 
@@ -45,7 +54,7 @@ public class LoteriaNavidad {
      * @param creado Variable que indica si hi ha una simulacio creada
      * @param sim Objecte Simulacion
      */
-    private static void VeureLlista(Simulacion sim) {
+    private static void VeureLlista() {
 
         sim.Mostrar();
     }
@@ -56,51 +65,60 @@ public class LoteriaNavidad {
      * @param creado Variable que indica si hi ha una simulacio creada
      * @param sim Objecte Simulacion
      */
-    public static void Buscar(Simulacion sim) {
+    public static void Buscar() {
         Comprobacio comprobar_numero = new Comprobacio(sim.GetPremios());
-        System.out.println(FRASE("introducenum"));
-        int numero1 = escollirOpcio(0, 99999, FRASE("introducenum"));
+        System.out.println(idioma.frase("introducenum"));
+        int numero1 = escollirOpcio(0, 99999, idioma.frase("introducenum"));
         String num = String.format("%05d", numero1);
-        System.out.println(FRASE("introduceprecio"));
+        System.out.println(idioma.frase("introduceprecio"));
         int precio = llegirInt();
         System.out.println(comprobar_numero.Resultat(num, precio));
 
     }
 
-    /**
-     * Crea un objecte Simulacion, preguntant si es vol reescriure l'anterior,
-     * si hi ha
-     *
-     * @param creado Variable que indica si hi ha una simulacio creada
-     * @param sim Objecte Simulacion
-     * @return boolean creado (hauria de retornar sempre true)
-     */
-    /*public static boolean Simulacion(boolean creado, Simulacion sim) {
-        
-        if (creado) {
-            System.out.println(FRASE(18));
-            System.out.println("1. " + FRASE(19));
-            System.out.println("2. " + FRASE(20));
-            if (escollirOpcio(1, 2, FRASE(18)) == 1) {
-                System.out.println(FRASE(21));
-                creado = sim.IniciarSimulacion();
-                System.out.println(FRASE(22));
-                
-            }
-        } else {
-            System.out.println(FRASE(21));
-            creado = sim.IniciarSimulacion();
-            System.out.println(FRASE(22));
-        }
-        return creado;
-    }*/
-    public static void NuevaSimulacion(Simulacion sim) {
+    public static void NuevaSimulacion() {
 
-        System.out.println("De quin any vols consultar la loteria?");
+        System.out.println(idioma.frase("anyocons"));
         int any = llegirInt();
         sim.NuevaLista(ArchivosBinarios.CargarLista(any));
-        System.out.println("Loteria del any " + any + " iniciada");
-
+        System.out.println(idioma.frase("loteriade") + any +" " +idioma.frase("iniciada"));
+        sim.setAnyo(any);
     }
+    /**
+     *
+     * @param listaDeIdiomas
+     * @return Devuelve el idioma que se usara
+     */
+    public static String Selector(ArrayList<String> listaDeIdiomas) {
+        int elegido;
+        String eleccion;
+        elegido = MenuAL(listaDeIdiomas);
+        eleccion = "./lang/" + listaDeIdiomas.get(elegido - 1)+".txt";
+        return eleccion;
+    }
+    public static void GestiondeCollas(){
+        String nomcolla = llegirString(idioma.frase("nomcolla"));
+        Colla colla = new Colla(nomcolla,sim.getAnyo());
+        
+        int opcion=0;
+        while (opcion != 3) {
+            opcion=Menu("anyadirmiembro","mostrarcolla");
+        switch(opcion){
+            case 1:
+                String nombre = llegirString(idioma.frase("nommiembro"));
+                int num=llegirInt(idioma.frase("numeromiembro"));
+                String nummiembros = String.format("%05d", num);
+                double importe=llegirDouble(idioma.frase("importemiembro"));
+                colla.afegirMembre(nombre, nummiembros, importe);
+                break;
+            case 2:
+                colla.mostrar();
+                break;
+        }
+        
+        }
+        
+    }
+    
 
 }

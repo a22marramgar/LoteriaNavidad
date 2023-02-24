@@ -4,14 +4,10 @@
  */
 package loteria;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import static utils.UIUtilities.*;
 import java.util.Properties;
 
 /**
@@ -20,44 +16,23 @@ import java.util.Properties;
  */
 public class Idiomas {
 
-    public static Idiomas idioma;
-    public static Properties PROPIEDADES = new Properties();
+    private Properties _prop;
+    public Idiomas(String IdiomaElegido){
+        this._prop=new Properties();
+        this._prop=CargarIdiomas(IdiomaElegido);
+    } 
 
-    public static Properties SelectorIdioma() {
-        if (idioma == null) {
-            idioma = new Idiomas();
-        }
-        final File archivosIdiomas = new File("./lang");
-        ArrayList<String> posibilidades = ArchivosEnCarpeta(archivosIdiomas);
-        String idiomaElegido = Selector(posibilidades);
-        Properties prop = CargarIdiomas(idiomaElegido);
-        return prop;
-    }
-
-    /**
-     *
-     * @param listaDeIdiomas
-     * @return Devuelve el idioma que se usara
-     */
-    public static String Selector(ArrayList<String> listaDeIdiomas) {
-        int elegido;
-        String eleccion;
-        elegido = MenuAL(listaDeIdiomas);
-        eleccion = "./lang/" + listaDeIdiomas.get(elegido - 1)+".txt";
-        return eleccion;
-    }
-
-    public static Properties CargarIdiomas(String archivo) {
-        
-        try (FileInputStream archivoPropiedades = new FileInputStream(archivo)) {
-            PROPIEDADES.load(archivoPropiedades);
+    private Properties CargarIdiomas(String archivo) {        
+        try {
+            FileInputStream archivoPropiedades = new FileInputStream(archivo);
+            this._prop.load(archivoPropiedades);
         } catch (IOException ex) {
             // manejo de excepciones
         }
-        return PROPIEDADES;
+        return this._prop;
     }
 
-    public static ArrayList ArchivosEnCarpeta(final File carpeta) {
+    public static ArrayList<String> ArchivosEnCarpeta(final File carpeta) {
         ArrayList<String> listaidiomas = new ArrayList<>();
         for (final File archivos : carpeta.listFiles()) {
             if (archivos.isDirectory()) {
@@ -71,8 +46,8 @@ public class Idiomas {
         return listaidiomas;
     }
 
-    public static String FRASE(String clave) {
-        String frase = PROPIEDADES.getProperty(clave);
+    public String frase(String clave) {
+        String frase = this._prop.getProperty(clave);
         return frase;
     }
 }

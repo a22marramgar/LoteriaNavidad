@@ -88,7 +88,7 @@ public class Colla implements Serializable{
         for (Membre m : this._lista) {
             double premio = com.Comprobar(m.getNumero(), 200);
             double premioCalculo = com.Comprobar(m.getNumero(), m.getImport());
-            System.out.print("| "+String.format("%-17s", m.getNom())
+            System.out.println("| "+String.format("%-17s", m.getNom())
             +"|  "+m.getNumero()+" | "+String.format("%6s", m.getImport())
             +" | "+String.format("%10s",premio)
             +" | "+String.format("%10s",premioCalculo)+" |");

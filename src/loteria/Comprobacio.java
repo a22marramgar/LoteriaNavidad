@@ -3,6 +3,7 @@ package loteria;
 import java.util.ArrayList;
 import java.util.List;
 import static loteria.Idiomas.*;
+import static loteria.LoteriaNavidad.idioma;
 
 /**
  * Comproba el premis de cada numero
@@ -238,24 +239,24 @@ public class Comprobacio {
         if (total != 0) {
             List<String> premios = new ArrayList<>();
             if (this._premio) {
-                premios.add(FRASE("premio").toUpperCase());
+                premios.add(idioma.frase("premio").toUpperCase());
             }
             if (this._aproximacion) {
-                premios.add(FRASE("aprox"));
+                premios.add(idioma.frase("aprox"));
             }
             if (this._centenas) {
-                premios.add(FRASE("centena"));
+                premios.add(idioma.frase("centena"));
             }
             if (this._ultimas) {
-                premios.add(FRASE("ultimas2"));
+                premios.add(idioma.frase("ultimas2"));
             }
             if (this._reintegro) {
-                premios.add(FRASE("reintegro"));
+                premios.add(idioma.frase("reintegro"));
             }
             String premiosString = String.join(", ", premios);
-            missatge = FRASE("felicidades")+" " + total + "€!\n"+FRASE("reparticion")+": " + premiosString;
+            missatge = idioma.frase("felicidades")+" " + total + "€!\n"+idioma.frase("reparticion")+": " + premiosString;
         } else {
-            missatge = FRASE("losiento");
+            missatge = idioma.frase("losiento");
         }
         return missatge;
     }

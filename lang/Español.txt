@@ -25,3 +25,6 @@ iniciar=Iniciar simulacion
 buscar=Buscar el premio
 verlista=Ver lista de premios
 salir=Salir
+anyocons=¿De que año quieres consultar la loteria?
+loteriade=Loteria del año 
+iniciada= iniciada

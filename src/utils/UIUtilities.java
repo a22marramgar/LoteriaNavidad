@@ -91,6 +91,30 @@ public class UIUtilities {
 
         return numero;
     }
+    /**
+     * Demana un valor de tipus int
+     *
+     * @param f Text que es mostra per pantalla per a demanar un int
+     * @return int
+     */
+    public static int llegirInt(String f) {
+        int numero = 0;
+        boolean valido = false;
+        while (!valido) {
+            System.out.print(f);
+            try {
+                numero = input.nextInt();
+                input.nextLine();
+                valido = true;
+            } catch (Exception e) {
+                input = new Scanner(System.in);
+                System.err.println("Error: " + e);
+                System.out.println("Vuelve a intentarlo");
+            }
+        }
+
+        return numero;
+    }
 
     /**
      * Demana un valor de tipus String
@@ -112,7 +136,6 @@ public class UIUtilities {
                 System.out.println("Vuelve a intentarlo");
             }
         }
-
         return texto;
     }
 
