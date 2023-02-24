@@ -3,6 +3,7 @@
  */
 package colles;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import loteria.ArchivosBinarios;
 import loteria.Comprobacio;
@@ -11,7 +12,7 @@ import loteria.Comprobacio;
  * @author ausias
  *
  */
-public class Colla {
+public class Colla implements Serializable{
 
     private String _nomColla;
     private int _anyJugat;
