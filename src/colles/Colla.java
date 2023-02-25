@@ -5,8 +5,10 @@ package colles;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import loteria.ArchivosBinarios;
 import loteria.Comprobacio;
+import loteria.LoteriaNavidad;
+import static loteria.LoteriaNavidad.idioma;
+import static utils.UIUtilities.*;
 
 /**
  * @author ausias
@@ -73,7 +75,7 @@ public class Colla implements Serializable{
 
     private double calcularPremioTotal() {
         double premioTotal = 0;
-        Comprobacio com = new Comprobacio (ArchivosBinarios.CargarLista(this._anyJugat));
+        Comprobacio com = new Comprobacio (LoteriaNavidad.sim.GetPremios());
         for(Membre m : this._lista){
             premioTotal += com.Comprobar(m.getNumero(), 200);
         }
@@ -82,9 +84,13 @@ public class Colla implements Serializable{
 
     private void mostrarTablaMembres() {
         System.out.println("+------------------+--------+--------+------------+------------+");
-        System.out.println("|       NOM        | NUMERO | DINERS |   PREMI    |   CALCUL   |");
+        System.out.println("|"+CentrarTexto(idioma.frase("nomtabla"),18)+"|"
+                +CentrarTexto(idioma.frase("numerotabla"),8)+"|"
+                +CentrarTexto(idioma.frase("dinerotabla"),8)+"|"
+                +CentrarTexto(idioma.frase("premiotabla"),12)+"|"
+                +CentrarTexto(idioma.frase("calculotabla"),12)+"|");
         System.out.println("+------------------+--------+--------+------------+------------+");
-        Comprobacio com = new Comprobacio(ArchivosBinarios.CargarLista(this._anyJugat));
+        Comprobacio com = new Comprobacio(LoteriaNavidad.sim.GetPremios());
         for (Membre m : this._lista) {
             double premio = com.Comprobar(m.getNumero(), 200);
             double premioCalculo = com.Comprobar(m.getNumero(), m.getImport());
@@ -94,5 +100,13 @@ public class Colla implements Serializable{
             +" | "+String.format("%10s",premioCalculo)+" |");
         }
         System.out.println("+------------------+--------+--------+------------+------------+");
+    }
+
+    public String getNom() {
+        return this._nomColla;
+    }
+
+    public int getAnyo() {
+        return this._anyJugat;
     }
 }

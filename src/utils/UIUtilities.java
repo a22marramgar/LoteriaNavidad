@@ -168,48 +168,6 @@ public class UIUtilities {
         System.out.print("\n\n\n\n\n\n\n\n\n\n");
         System.out.flush();
     }
-    public static File AbrirFichero(String nomFichero, boolean crear) {
-        File result = null;
-
-        result = new File(nomFichero);
-
-        if (!result.exists()) {
-            if (crear) {
-                try {
-                    result.createNewFile();
-                } catch (IOException ex) {
-                    Logger.getLogger(UIUtilities.class.getName()).log(Level.SEVERE, null, ex);
-                    result = null;
-                }
-            } else {
-                result = null;
-            }
-        }
-
-        return result;
-    }
-    public static BufferedReader AbrirFicheroLectura(String nomFichero, boolean crear) {
-        BufferedReader br = null;
-        File f = AbrirFichero(nomFichero, crear);
-
-        if (f != null) {
-            // Declarar el reader para poder leer el fichero¡
-            FileReader reader;
-            try {
-                reader = new FileReader(f);
-                // Buffered reader para poder leer más comodamente
-                br = new BufferedReader(reader);
-            } catch (FileNotFoundException ex) {
-                Logger.getLogger(UIUtilities.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-
-        return br;
-    }
-    public static void CerrarFichero(PrintWriter pw) {
-        pw.flush();
-        pw.close();
-    }
         /**
      * Utilitza el menu
      *
@@ -237,6 +195,13 @@ public class UIUtilities {
         }
         opcio = escollirOpcio(1, num,"Invalid");
         return opcio;
+    }
+    
+    public static String CentrarTexto(String texto, int espacio){
+        int espIzq = (espacio-texto.length())/2;
+        texto = String.format("%"+(espIzq+texto.length())+"s", texto);
+        texto = String.format("%-"+espacio+"s", texto);
+        return texto;
     }
     
 }

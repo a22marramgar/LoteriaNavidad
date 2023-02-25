@@ -1,5 +1,6 @@
 package loteria;
 
+import utils.ArchivosBinarios;
 import colles.Colla;
 import java.io.File;
 import java.util.ArrayList;
@@ -12,11 +13,11 @@ import static utils.UIUtilities.*;
  * @author ausias
  */
 public class LoteriaNavidad {
-    final static File archivosIdiomas = new File("./lang");
+    final static File ARCHIVOSIDIOMAS = new File("./lang");
     public static Idiomas idioma;
     public static Simulacion sim;
     public static void main(String[] args) {
-        idioma = new Idiomas(Selector(Idiomas.ArchivosEnCarpeta(archivosIdiomas)));
+        idioma = new Idiomas(Selector(Idiomas.ArchivosEnCarpeta(ARCHIVOSIDIOMAS)));
         
         sim = new Simulacion();
         NuevaSimulacion();
@@ -62,8 +63,6 @@ public class LoteriaNavidad {
     /**
      * Buscar el premi corresponent a un numero
      *
-     * @param creado Variable que indica si hi ha una simulacio creada
-     * @param sim Objecte Simulacion
      */
     public static void Buscar() {
         Comprobacio comprobar_numero = new Comprobacio(sim.GetPremios());
@@ -80,9 +79,12 @@ public class LoteriaNavidad {
 
         System.out.println(idioma.frase("anyocons"));
         int any = llegirInt();
-        sim.NuevaLista(ArchivosBinarios.CargarLista(any));
+        sim = ArchivosBinarios.CargarSimulacion(any);
+        if(!sim.estaIniciada()){
+            sim.IniciarSimulacion();
+            ArchivosBinarios.GrabarPremiosBinario(sim);
+        }
         System.out.println(idioma.frase("loteriade") + any +" " +idioma.frase("iniciada"));
-        sim.setAnyo(any);
     }
     /**
      *
@@ -98,11 +100,11 @@ public class LoteriaNavidad {
     }
     public static void GestiondeCollas(){
         String nomcolla = llegirString(idioma.frase("nomcolla"));
-        Colla colla = new Colla(nomcolla,sim.getAnyo());
+        Colla colla = ArchivosBinarios.CargarColla(nomcolla,sim.getAnyo());
         
         int opcion=0;
         while (opcion != 3) {
-            opcion=Menu("anyadirmiembro","mostrarcolla");
+            opcion=Menu(idioma.frase("anyadirmiembro"),idioma.frase("mostrarcolla"), idioma.frase("salir"));
         switch(opcion){
             case 1:
                 String nombre = llegirString(idioma.frase("nommiembro"));
@@ -113,6 +115,9 @@ public class LoteriaNavidad {
                 break;
             case 2:
                 colla.mostrar();
+                break;
+            case 3:
+                ArchivosBinarios.GrabarColla(colla);
                 break;
         }
         

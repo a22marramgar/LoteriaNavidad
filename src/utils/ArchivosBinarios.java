@@ -2,12 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
-package loteria;
+package utils;
 
+import colles.Colla;
 import java.io.*;
-import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import loteria.Simulacion;
 
 /**
  *
@@ -18,17 +19,30 @@ public class ArchivosBinarios {
     public static final int TOTALPREMIOS = 1807;
 
     /**
-     * @param Lista
+     * @param sim
+     * @param any
      */
-    public static void GrabarPremiosBinario(ArrayList<Premio> Lista, int any) {
-        ObjectOutputStream oos = AbrirFicheroEscrituraBinario("./simulaciones/loteria" + any + ".bin", true, false);
+    public static void GrabarPremiosBinario(Simulacion sim) {
+        ObjectOutputStream oos = AbrirFicheroEscrituraBinario("./simulaciones/loteria" + sim.getAnyo() + ".bin", true, false);
+        try {
+            oos.writeObject(sim);
+        } catch (IOException ex) {
+            Logger.getLogger(ArchivosBinarios.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
-        for (Premio p : Lista) {
-            try {
-                oos.writeObject(p);
-            } catch (IOException ex) {
-                Logger.getLogger(ArchivosBinarios.class.getName()).log(Level.SEVERE, null, ex);
-            }
+        CerrarFicheroBinarioOutput(oos);
+    }
+    
+    /**
+     * @param sim
+     * @param any
+     */
+    public static void GrabarColla(Colla colla) {
+        ObjectOutputStream oos = AbrirFicheroEscrituraBinario("./colles/"+ colla.getNom() + colla.getAnyo() + ".bin", true, false);
+        try {
+            oos.writeObject(colla);
+        } catch (IOException ex) {
+            Logger.getLogger(ArchivosBinarios.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         CerrarFicheroBinarioOutput(oos);
@@ -94,7 +108,9 @@ public class ArchivosBinarios {
                 reader = new FileInputStream(f);
                 // PrintWriter para poder escribir más comodamente
                 ois = new ObjectInputStream(reader);
-            } catch (IOException ex) {
+            }catch(EOFException ex){
+                //Aqui llega si el fichero esta vacio
+            }catch (IOException ex) {
                 Logger.getLogger(ArchivosBinarios.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
@@ -110,30 +126,36 @@ public class ArchivosBinarios {
         }
     }
 
-    public static ArrayList<Premio> CargarLista(int any) {
-        ArrayList<Premio> lista = new ArrayList();
-        File fitxer;
-        fitxer = new File("./simulaciones/loteria" + any + ".bin");
-
-        if (!fitxer.exists()) {
-            Simulacion sim = new Simulacion();
-            sim.IniciarSimulacion();
-            lista = sim.GetPremios();
-            GrabarPremiosBinario(lista, any);
-
-        } else {
-            ObjectInputStream ois = AbrirFicheroLecturaBinario("./simulaciones/loteria" + any + ".bin", true);
-            for (int i = 0; i != TOTALPREMIOS; i++) {
-                try {
-                    Premio p = (Premio) ois.readObject();
-                    lista.add(p);
-                } catch (IOException | ClassNotFoundException ex) {
-                    Logger.getLogger(ArchivosBinarios.class.getName()).log(Level.SEVERE, null, ex);
-                }
+    //Buscar fichero
+    //Si existe, cargar simulacion de fichero
+    //Si no existe, crear sim vacia
+    //devolver sim
+    public static Simulacion CargarSimulacion(int any) {
+        ObjectInputStream ois = AbrirFicheroLecturaBinario("./simulaciones/loteria" + any + ".bin", true);
+        Simulacion sim = new Simulacion(any);
+        if (ois != null) {
+            try {
+                sim = (Simulacion) ois.readObject();
+            } catch (IOException | ClassNotFoundException ex) {
+                Logger.getLogger(ArchivosBinarios.class.getName()).log(Level.SEVERE, null, ex);
             }
             CerrarFicheroBinarioInput(ois);
         }
-        return lista;
+        return sim;
+    }
+
+    public static Colla CargarColla(String nomcolla, int any) {
+        ObjectInputStream ois = AbrirFicheroLecturaBinario("./colles/"+ nomcolla + any + ".bin", true);
+        Colla colla = new Colla(nomcolla, any);
+        if (ois != null) {
+            try {
+                colla = (Colla) ois.readObject();
+            } catch (IOException | ClassNotFoundException ex) {
+                Logger.getLogger(ArchivosBinarios.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            CerrarFicheroBinarioInput(ois);
+        }
+        return colla;
     }
 
 }

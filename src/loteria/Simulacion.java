@@ -1,5 +1,6 @@
 package loteria;
 
+import java.io.Serializable;
 import java.util.Random;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -11,7 +12,7 @@ import static loteria.LoteriaNavidad.idioma;
  * @author ausias
  */
 
-public class Simulacion {
+public class Simulacion implements Serializable{
     private int _anyo;
     private ArrayList<Premio> _Lista;
     public static final int PRIMERPREMIO = 4000000;
@@ -21,6 +22,14 @@ public class Simulacion {
     public static final int QUINTOS = 60000;
     public static final int PEDREAS = 1000;
 
+    public Simulacion(int anyo){
+        this._anyo = anyo;
+        this._Lista = new ArrayList<>();
+    }
+    
+    public Simulacion(){
+        this._Lista = new ArrayList<>();
+    }
     /**
      * Inicia una nova simulacio, assignant valors a la llista de Premio
      *
@@ -158,7 +167,12 @@ public class Simulacion {
     public void setAnyo(int anyo){
         this._anyo=anyo;
     }
+    
     public int getAnyo(){
         return this._anyo;
+    }
+    
+    public boolean estaIniciada(){
+        return !this._Lista.isEmpty();
     }
 }
