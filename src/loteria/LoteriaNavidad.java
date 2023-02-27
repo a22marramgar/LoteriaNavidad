@@ -74,7 +74,9 @@ public class LoteriaNavidad {
         System.out.println(comprobar_numero.Resultat(num, precio));
 
     }
-
+    /**
+     * Abre una la simulacion según el año que quieras o la crea si no existe
+     */
     public static void NuevaSimulacion() {
 
         System.out.println(idioma.frase("anyocons"));
@@ -98,6 +100,9 @@ public class LoteriaNavidad {
         eleccion = "./lang/" + listaDeIdiomas.get(elegido - 1)+".txt";
         return eleccion;
     }
+    /**
+     * Para gestionar grupos, añadarilos y mostrarlos
+     */
     public static void GestiondeCollas(){
         String nomcolla = llegirString(idioma.frase("nomcolla"));
         Colla colla = ArchivosBinarios.CargarColla(nomcolla,sim.getAnyo());

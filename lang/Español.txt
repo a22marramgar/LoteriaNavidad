@@ -1,9 +1,9 @@
 premio=premio
-primero=Primer
-segundo=Segundo
-tercero=Tercer
-cuartos=Cuartos
-quintos=Quintos
+primero=Primer premio
+segundo=Segundo premio
+tercero=Tercer premio
+cuartos=Cuartos premios
+quintos=Quintos premios
 felicidades=Felicidades, has ganado
 reparticion=Este premio se reparte entre entre
 aprox=APROXIMACION

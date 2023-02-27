@@ -21,6 +21,7 @@ public class Simulacion implements Serializable{
     public static final int CUARTOS = 200000;
     public static final int QUINTOS = 60000;
     public static final int PEDREAS = 1000;
+    public static final int CANTPREMIOS = 1807;
 
     public Simulacion(int anyo){
         this._anyo = anyo;
@@ -66,20 +67,20 @@ public class Simulacion implements Serializable{
             Premio Prem = new Premio(numeros.get(recorredor), pozo.get(valor));
             this._Lista.add(Prem);
             switch (pozo.get(valor)) {
-                case 200000:
+                case CUARTOS:
                     contador4--;
                     break;
-                case 60000:
+                case QUINTOS:
                     contador5--;
                     break;
-                case 1000:
+                case PEDREAS:
                     contador6--;
                     break;
                 default:
                     break;
             }
 
-            if (pozo.get(valor) == 4000000 || pozo.get(valor) == 1200000 || pozo.get(valor) == 500000) {
+            if (pozo.get(valor) == PRIMERPREMIO || pozo.get(valor) == SEGUNDOPREMIO || pozo.get(valor) == TERCERPREMIO) {
                 pozo.remove(valor);
             } else if (contador4 == 0 && !corte4) {
                 pozo.remove(valor);
@@ -163,15 +164,24 @@ public class Simulacion implements Serializable{
     public void NuevaLista(ArrayList<Premio> LoteriaAnyo){
         this._Lista=LoteriaAnyo;
     }
-    
+    /**
+     * Guarda el año que se creo la simulacion
+     * @param anyo Año de la simulacion creada
+     */
     public void setAnyo(int anyo){
         this._anyo=anyo;
     }
-    
+    /**
+     * Sacar el año de la simulacion creada
+     * @return el año
+     */
     public int getAnyo(){
         return this._anyo;
     }
-    
+    /**
+     * Comprobar si la simulacion esta iniciada
+     * @return 
+     */
     public boolean estaIniciada(){
         return !this._Lista.isEmpty();
     }

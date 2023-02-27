@@ -1,9 +1,9 @@
 premio=prize
-primero=First
-segundo=Second
-tercero=Third
-cuartos=Fourth
-quintos=Fifth
+primero=First prize
+segundo=Second prize
+tercero=Third prize
+cuartos=Fourth prizes
+quintos=Fifth prizes
 felicidades=Congratulations, you won
 reparticion=This prize is shared between
 aprox=APROXIMATION

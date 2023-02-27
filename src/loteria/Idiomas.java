@@ -21,7 +21,11 @@ public class Idiomas {
         this._prop=new Properties();
         this._prop=CargarIdiomas(IdiomaElegido);
     } 
-
+    /**
+     * Carga el archivo con el idioma seleccionado en el Properties
+     * @param archivo Archivo a cargar
+     * @return 
+     */
     private Properties CargarIdiomas(String archivo) {        
         try {
             FileInputStream archivoPropiedades = new FileInputStream(archivo);
@@ -31,7 +35,11 @@ public class Idiomas {
         }
         return this._prop;
     }
-
+    /**
+     * Para leer los archivos que existen en un carpeta
+     * @param carpeta Donde buscaremos los archivos
+     * @return 
+     */
     public static ArrayList<String> ArchivosEnCarpeta(final File carpeta) {
         ArrayList<String> listaidiomas = new ArrayList<>();
         for (final File archivos : carpeta.listFiles()) {
@@ -45,7 +53,11 @@ public class Idiomas {
         }
         return listaidiomas;
     }
-
+    /**
+     * Busca la frase correspondiente a la clave que le proporcionamos
+     * @param clave con la que buscaremos la frase
+     * @return 
+     */
     public String frase(String clave) {
         String frase = this._prop.getProperty(clave);
         return frase;
