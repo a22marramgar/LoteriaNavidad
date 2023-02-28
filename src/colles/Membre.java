@@ -8,7 +8,7 @@ import java.io.Serializable;
 
 /**
  * Emmagatzemarem a la classe Membre el nom, el numero, i l'import
- * @author ausias
+ * @author Mario
  */
 class Membre implements Serializable{
 

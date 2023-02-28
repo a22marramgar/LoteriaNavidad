@@ -2,7 +2,7 @@ package loteria;
 
 import java.util.ArrayList;
 import java.util.List;
-import static loteria.Idiomas.*;
+import static idiomas.Idiomas.*;
 import static loteria.LoteriaNavidad.idioma;
 
 /**

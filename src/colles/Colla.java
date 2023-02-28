@@ -11,7 +11,7 @@ import static loteria.LoteriaNavidad.idioma;
 import static utils.UIUtilities.*;
 
 /**
- * @author ausias
+ * @author Mario
  *
  */
 public class Colla implements Serializable{
@@ -22,6 +22,11 @@ public class Colla implements Serializable{
     private double _importTotal;
     private ArrayList<Membre> _lista;
 
+    /**
+     * Constructor de Colla
+     * @param nomColla String
+     * @param anyJugat int
+     */
     public Colla(String nomColla, int anyJugat) {
         this._nomColla = nomColla;
         this._anyJugat = anyJugat;
@@ -52,6 +57,12 @@ public class Colla implements Serializable{
         return afegit;
     }
     
+    /**
+     * Comprova que no hagi un membre a la llista amb el mateix nom i numero de
+     * loteria
+     * @param nouMembre Membre a comprovar
+     * @return true si esta repetit, false si no
+     */
     private boolean comprobarRepetido(Membre nouMembre) {
         boolean repetido = false;
         for(Membre m : this._lista){
@@ -63,6 +74,9 @@ public class Colla implements Serializable{
         return repetido;
     }
     
+    /**
+     * Mostra la informacio de la Colla
+     */
     public void mostrar(){
         System.out.println("Colla: "+this._nomColla);
         System.out.println("Any: "+this._anyJugat);
@@ -73,6 +87,10 @@ public class Colla implements Serializable{
         mostrarTablaMembres();
     }
 
+    /**
+     * Fa el calcul de la suma del total dels premis guanyats a la colla
+     * @return 
+     */
     private double calcularPremioTotal() {
         double premioTotal = 0;
         Comprobacio com = new Comprobacio (LoteriaNavidad.sim.GetPremios());
@@ -82,6 +100,9 @@ public class Colla implements Serializable{
         return premioTotal;
     }
 
+    /**
+     * Mostra la taula de Membres de la Colla
+     */
     private void mostrarTablaMembres() {
         System.out.println("+------------------+--------+--------+------------+------------+");
         System.out.println("|"+CentrarTexto(idioma.frase("nomtabla"),18)+"|"
@@ -102,10 +123,18 @@ public class Colla implements Serializable{
         System.out.println("+------------------+--------+--------+------------+------------+");
     }
 
+    /**
+     * 
+     * @return nom de la colla 
+     */
     public String getNom() {
         return this._nomColla;
     }
 
+    /**
+     * 
+     * @return any jugat de la colla
+     */
     public int getAnyo() {
         return this._anyJugat;
     }

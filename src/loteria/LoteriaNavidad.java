@@ -1,5 +1,6 @@
 package loteria;
 
+import idiomas.Idiomas;
 import utils.ArchivosBinarios;
 import colles.Colla;
 import java.io.File;

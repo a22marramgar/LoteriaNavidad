@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package loteria;
+package idiomas;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -46,9 +46,7 @@ public class Idiomas {
             if (archivos.isDirectory()) {
                 ArchivosEnCarpeta(archivos);
             } else {
-                //if(archivos.getName()!=null){ 
                 listaidiomas.add(archivos.getName().substring(0, archivos.getName().length()-4));
-                //}
             }
         }
         return listaidiomas;

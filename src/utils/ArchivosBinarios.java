@@ -19,8 +19,8 @@ public class ArchivosBinarios {
     public static final int TOTALPREMIOS = 1807;
 
     /**
+     * 
      * @param sim
-     * @param any
      */
     public static void GrabarPremiosBinario(Simulacion sim) {
         ObjectOutputStream oos = AbrirFicheroEscrituraBinario("./simulaciones/loteria" + sim.getAnyo() + ".bin", true, false);
@@ -34,8 +34,8 @@ public class ArchivosBinarios {
     }
     
     /**
-     * @param sim
-     * @param any
+     * 
+     * @param colla 
      */
     public static void GrabarColla(Colla colla) {
         ObjectOutputStream oos = AbrirFicheroEscrituraBinario("./colles/"+ colla.getNom() + colla.getAnyo() + ".bin", true, false);
