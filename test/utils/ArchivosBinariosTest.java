@@ -44,7 +44,7 @@ public class ArchivosBinariosTest {
     }
 
     /**
-     * Test of GrabarPremiosBinario method, of class ArchivosBinarios.
+     * Prueba para comprobar que el numero se grabe correctamente
      */
     @Test
     public void testGrabarPremiosBinario() {
@@ -58,7 +58,7 @@ public class ArchivosBinariosTest {
     }
     
      /**
-     * Test of GrabarPremiosBinario method, of class ArchivosBinarios.
+     * Prueba para comprobar que el premio se grabe correctamente
      */
     @Test
     public void testGrabarPremiosBinario2() {
@@ -78,98 +78,39 @@ public class ArchivosBinariosTest {
      */
     @Test
     public void testGrabarColla() {
-        System.out.println("GrabarColla");
-        Simulacion sim = new Simulacion(512);
-        sim.IniciarSimulacion();
+        System.out.println("GrabarColla");       
         ArchivosBinarios.GrabarPremiosBinario(sim);
         Simulacion simpruebas = ArchivosBinarios.CargarSimulacion(512);
         int result = sim.GetPremios().get(804).getPremio();
         int expresult = simpruebas.GetPremios().get(804).getPremio();;
         assertEquals(expresult, result);  
-    }
+    }   
+
 
     /**
-     * Test of AbrirFichero method, of class ArchivosBinarios.
-     */
-    @Test
-    public void testAbrirFichero() {
-        System.out.println("AbrirFichero");
-        String nomFichero = "";
-        boolean crear = false;
-        File expResult = null;
-        File result = ArchivosBinarios.AbrirFichero(nomFichero, crear);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of AbrirFicheroEscrituraBinario method, of class ArchivosBinarios.
-     */
-    @Test
-    public void testAbrirFicheroEscrituraBinario() {
-        System.out.println("AbrirFicheroEscrituraBinario");
-        String nomFichero = "";
-        boolean crear = false;
-        boolean blnAnyadir = false;
-        ObjectOutputStream expResult = null;
-        ObjectOutputStream result = ArchivosBinarios.AbrirFicheroEscrituraBinario(nomFichero, crear, blnAnyadir);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of CerrarFicheroBinarioOutput method, of class ArchivosBinarios.
-     */
-    @Test
-    public void testCerrarFicheroBinarioOutput() {
-        System.out.println("CerrarFicheroBinarioOutput");
-        ObjectOutputStream oos = null;
-        ArchivosBinarios.CerrarFicheroBinarioOutput(oos);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of AbrirFicheroLecturaBinario method, of class ArchivosBinarios.
-     */
-    @Test
-    public void testAbrirFicheroLecturaBinario() {
-        System.out.println("AbrirFicheroLecturaBinario");
-        String nomFichero = "";
-        boolean crear = false;
-        ObjectInputStream expResult = null;
-        ObjectInputStream result = ArchivosBinarios.AbrirFicheroLecturaBinario(nomFichero, crear);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of CerrarFicheroBinarioInput method, of class ArchivosBinarios.
-     */
-    @Test
-    public void testCerrarFicheroBinarioInput() {
-        System.out.println("CerrarFicheroBinarioInput");
-        ObjectInputStream ois = null;
-        ArchivosBinarios.CerrarFicheroBinarioInput(ois);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of CargarSimulacion method, of class ArchivosBinarios.
+     * Prueba para comprobar si se inicia una simulacion vacia
      */
     @Test
     public void testCargarSimulacion() {
-        System.out.println("CargarSimulacion");
-        int any = 0;
-        Simulacion expResult = null;
-        Simulacion result = ArchivosBinarios.CargarSimulacion(any);
+        System.out.println("CargarSimulacion");                  
+        Simulacion sim1 =  ArchivosBinarios.CargarSimulacion(422);
+        boolean result = sim1.estaIniciada();
+        boolean expResult = false;        
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+       
+    }
+    
+     /**
+     * Prueba para comprobar cuando se inicia una simulacion correctamente
+     */
+    @Test
+    public void testCargarSimulacion2() {
+        System.out.println("CargarSimulacion");                  
+        sim = ArchivosBinarios.CargarSimulacion(512);
+        boolean result = sim.estaIniciada();
+        boolean expResult = true;        
+        assertEquals(expResult, result);
+       
     }
 
     /**
