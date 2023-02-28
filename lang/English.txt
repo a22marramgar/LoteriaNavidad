@@ -40,3 +40,4 @@ numerotabla=NUMBER
 dinerotabla=MONEY
 premiotabla=PRIZE
 calculotabla=ESTIMATE
+entre5y60=The number has to be a multiple of 5 from 5 to 60

@@ -113,11 +113,7 @@ public class LoteriaNavidad {
             opcion=Menu(idioma.frase("anyadirmiembro"),idioma.frase("mostrarcolla"), idioma.frase("salir"));
         switch(opcion){
             case 1:
-                String nombre = llegirString(idioma.frase("nommiembro"));
-                int num=llegirInt(idioma.frase("numeromiembro"));
-                String nummiembros = String.format("%05d", num);
-                double importe=llegirDouble(idioma.frase("importemiembro"));
-                colla.afegirMembre(nombre, nummiembros, importe);
+                pedirNuevoMiembro(colla);
                 break;
             case 2:
                 colla.mostrar();
@@ -129,6 +125,21 @@ public class LoteriaNavidad {
         
         }
         
+    }
+
+    private static void pedirNuevoMiembro(Colla colla) {
+        String nombre = llegirString(idioma.frase("nommiembro"));
+        System.out.println(idioma.frase("numeromiembro"));
+        int num = escollirOpcio(0, 99999, idioma.frase("numeromiembro"));
+        String nummiembros = String.format("%05d", num);
+        double importe;
+        System.out.println(idioma.frase("importemiembro"));
+        do{
+            System.out.println(idioma.frase("entre5y60"));
+            importe=escollirOpcio(1, 60, idioma.frase("entre5y60"));
+        }while(importe%5!=0);
+        
+        colla.afegirMembre(nombre, nummiembros, importe);
     }
     
 

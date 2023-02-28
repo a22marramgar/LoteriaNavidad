@@ -25,4 +25,4 @@ iniciar=Simulation starten
 buscar=Preis suchen
 verlista=Preisliste anzeigen
 salir=Verlassen
-
+entre5y60=Die Zahl muss ein Vielfaches von 5 von 5 bis 60 sein
