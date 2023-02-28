@@ -22,6 +22,7 @@ import static org.junit.Assert.*;
  */
 public class ArchivosBinariosTest {
     public Simulacion sim = new Simulacion(512);
+    public Colla colla = new Colla("lacolla",sim.getAnyo());
      
     public ArchivosBinariosTest() {
     sim.IniciarSimulacion();  
@@ -66,25 +67,39 @@ public class ArchivosBinariosTest {
         ArchivosBinarios.GrabarPremiosBinario(sim);
         Simulacion simpruebas = ArchivosBinarios.CargarSimulacion(512);
         int result = sim.GetPremios().get(804).getPremio();
-        int expresult = simpruebas.GetPremios().get(804).getPremio();;
+        int expresult = simpruebas.GetPremios().get(804).getPremio();
         assertEquals(expresult, result);        
         
-    }
-    
+    }    
     
 
     /**
-     * Test of GrabarColla method, of class ArchivosBinarios.
+     * Prueba 2 para comprobar que grabe bien las collas, comprueba cuando el nombre 
+     * de la colla es igual a la esperada
      */
     @Test
     public void testGrabarColla() {
-        System.out.println("GrabarColla");       
-        ArchivosBinarios.GrabarPremiosBinario(sim);
-        Simulacion simpruebas = ArchivosBinarios.CargarSimulacion(512);
-        int result = sim.GetPremios().get(804).getPremio();
-        int expresult = simpruebas.GetPremios().get(804).getPremio();;
+        System.out.println("GrabarColla");
+        ArchivosBinarios.GrabarColla(colla);
+        Colla colla2 = ArchivosBinarios.CargarColla("lacolla",sim.getAnyo());
+        String result = colla.getNom();
+        String expresult = colla2.getNom();
         assertEquals(expresult, result);  
-    }   
+    }
+    
+    /**
+     * Prueba 2 para comprobar que grabe bien las collas, comprueba cuando el nombre 
+     * de la colla no es igual a la esperada
+     */
+    @Test
+    public void testGrabarColla2() {
+        System.out.println("GrabarColla2");
+        ArchivosBinarios.GrabarColla(colla);        
+        Colla colla2 = ArchivosBinarios.CargarColla("otracolla",sim.getAnyo());
+        String result = colla.getNom();
+        String expresult = colla2.getNom();
+        assertNotSame(expresult, result);  
+    } 
 
 
     /**
@@ -105,7 +120,7 @@ public class ArchivosBinariosTest {
      */
     @Test
     public void testCargarSimulacion2() {
-        System.out.println("CargarSimulacion");                  
+        System.out.println("CargarSimulacion2");                  
         sim = ArchivosBinarios.CargarSimulacion(512);
         boolean result = sim.estaIniciada();
         boolean expResult = true;        
@@ -114,18 +129,30 @@ public class ArchivosBinariosTest {
     }
 
     /**
-     * Test of CargarColla method, of class ArchivosBinarios.
+     * Prueba para comprobar que carge bien las collas, comprueba cuando el nombre 
+     * de la colla es igual a la esperada
      */
     @Test
     public void testCargarColla() {
-        System.out.println("CargarColla");
-        String nomcolla = "";
-        int any = 0;
-        Colla expResult = null;
-        Colla result = ArchivosBinarios.CargarColla(nomcolla, any);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        System.out.println("CargarColla");                  
+        Colla colla2 = ArchivosBinarios.CargarColla("lacolla",sim.getAnyo());
+        String result = colla.getNom();
+        String expresult = colla2.getNom();
+        assertEquals(expresult, result);
     }
+    
+     /**
+     * Prueba para comprobar que carge bien las collas, comprueba cuando el nombre 
+     * de la colla no es igual a la esperada
+     */
+    @Test
+    public void testCargarColla2() {
+        System.out.println("CargarColla2");                  
+        Colla colla2 = ArchivosBinarios.CargarColla("novacolla",sim.getAnyo());
+        String result = colla.getNom();
+        String expresult = colla2.getNom();
+        assertNotSame(expresult, result);
+    }    
+    
 
 }
