@@ -78,12 +78,12 @@ public class Colla implements Serializable{
      * Mostra la informacio de la Colla
      */
     public void mostrar(){
-        System.out.println("Colla: "+this._nomColla);
-        System.out.println("Any: "+this._anyJugat);
-        System.out.println("Diners: "+this._importTotal);
-        System.out.println("Premi: "+calcularPremioTotal());
+        System.out.println(idioma.frase("collanom")+this._nomColla);
+        System.out.println(idioma.frase("collaany")+this._anyJugat);
+        System.out.println(idioma.frase("colladiners")+this._importTotal);
+        System.out.println(idioma.frase("collapremi")+calcularPremioTotal());
         System.out.println();
-        System.out.println("Membres: "+this._nombreMembres);
+        System.out.println(idioma.frase("collamembres")+this._nombreMembres);
         mostrarTablaMembres();
     }
 
