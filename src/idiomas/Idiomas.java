@@ -7,6 +7,8 @@ package idiomas;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Properties;
 
@@ -29,7 +31,8 @@ public class Idiomas {
     private Properties CargarIdiomas(String archivo) {        
         try {
             FileInputStream archivoPropiedades = new FileInputStream(archivo);
-            this._prop.load(archivoPropiedades);
+            InputStreamReader isr = new InputStreamReader(archivoPropiedades, StandardCharsets.UTF_8);
+            this._prop.load(isr);
         } catch (IOException ex) {
             // manejo de excepciones
         }
