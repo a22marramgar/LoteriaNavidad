@@ -28,9 +28,7 @@ public class Comprobacio {
     /**
      * Constructor de Comprobacio
      *
-     * @param numero numero a comprobar
      * @param Premiados llista de Premio
-     * @param importe Diners gastats en el numero
      */
     public Comprobacio(ArrayList<Premio> Premiados) {
         this._lista = Premiados;

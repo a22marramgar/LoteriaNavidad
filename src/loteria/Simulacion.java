@@ -61,7 +61,6 @@ public class Simulacion implements Serializable{
         boolean corte4 = false;
         boolean corte5 = false;
         boolean corte6 = false;
-        //boolean corte7 = false;
         while (pozo.size() >= 1) {
             int valor = ran.nextInt(pozo.size());
             Premio Prem = new Premio(numeros.get(recorredor), pozo.get(valor));
