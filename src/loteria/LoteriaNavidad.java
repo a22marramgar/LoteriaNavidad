@@ -129,7 +129,7 @@ public class LoteriaNavidad {
 
     private static void pedirNuevoMiembro(Colla colla) {
         String nombre = llegirString(idioma.frase("nommiembro"));
-        System.out.println(idioma.frase("numeromiembro"));
+        System.out.print(idioma.frase("numeromiembro"));
         int num = escollirOpcio(0, 99999, idioma.frase("numeromiembro"));
         String nummiembros = String.format("%05d", num);
         double importe;
