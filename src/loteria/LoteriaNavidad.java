@@ -108,16 +108,25 @@ public class LoteriaNavidad {
         Colla colla = ArchivosBinarios.CargarColla(nomcolla,sim.getAnyo());
         
         int opcion=0;
-        while (opcion != 3) {
-            opcion=Menu(idioma.frase("anyadirmiembro"),idioma.frase("mostrarcolla"), idioma.frase("salir"));
+        while (opcion < 5) {
+            opcion=Menu(idioma.frase("anyadirmiembro"),"eliminarmiembro","modimportemiembro",idioma.frase("mostrarcolla"), "eliminarcolla",idioma.frase("salir"));
         switch(opcion){
             case 1:
                 pedirNuevoMiembro(colla);
                 break;
             case 2:
-                colla.mostrar();
+                EliminarMiembro(colla);
                 break;
             case 3:
+                ModImporte(colla);
+                break;            
+            case 4:
+                colla.mostrar();
+                break;
+            case 5:
+                ArchivosBinarios.BorrarFichero("./colles/"+ nomcolla + sim.getAnyo() + ".bin");
+                break;
+            case 6:
                 ArchivosBinarios.GrabarColla(colla);
                 break;
         }
@@ -125,7 +134,10 @@ public class LoteriaNavidad {
         }
         
     }
-
+    /**
+     * 
+     * @param colla 
+     */
     private static void pedirNuevoMiembro(Colla colla) {
         String nombre = llegirString(idioma.frase("nommiembro"));
         System.out.print(idioma.frase("numeromiembro"));
@@ -139,6 +151,35 @@ public class LoteriaNavidad {
         }while(importe%5!=0);
         
         colla.afegirMembre(nombre, nummiembros, importe);
+    }
+    /**
+     * Funcion para eliminar un miembro
+     * @param colla A eliminar
+     */
+    private static void EliminarMiembro(Colla colla) {
+        String nombre = llegirString(idioma.frase("nommiembro"));
+        System.out.print(idioma.frase("numeromiembro"));
+        int num = escollirOpcio(0, 99999, idioma.frase("numeromiembro"));
+        String nummiembros = String.format("%05d", num);
+        colla.borrarMembre(nombre, nummiembros);
+    }
+    /**
+     * Funcion para modificar el importe de un miembro
+     * @param colla A modificar
+     */
+    private static void ModImporte(Colla colla) {
+        
+        double importe;        
+        String nombre = llegirString(idioma.frase("nommiembro"));
+        System.out.print(idioma.frase("numeromiembro"));
+        int num = escollirOpcio(0, 99999, idioma.frase("numeromiembro"));
+        String nummiembros = String.format("%05d", num);
+        System.out.println(idioma.frase("importemiembro"));
+        do{
+            System.out.println(idioma.frase("entre5y60"));
+            importe=escollirOpcio(1, 60, idioma.frase("entre5y60"));
+        }while(importe%5!=0);   
+        colla.ModImporteMembre(nombre, nummiembros, importe);
     }
     
 
