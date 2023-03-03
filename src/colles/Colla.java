@@ -5,7 +5,6 @@ package colles;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Collections;
 import loteria.Comprobacio;
 import loteria.LoteriaNavidad;
 import static loteria.LoteriaNavidad.idioma;
