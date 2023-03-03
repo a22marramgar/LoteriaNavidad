@@ -41,6 +41,7 @@ numerotabla=NUMERO
 dinerotabla=DINERS
 premiotabla=PREMI
 calculotabla=CALCUL
+nombrelargo= Nom massa llarg (maxim 16 caràcters)
 entre5y60=¡ATENCIO! L'import ha de ser un multiple de 5, desde 5 fins a 60
 collanom=Colla:
 collaany=Any:

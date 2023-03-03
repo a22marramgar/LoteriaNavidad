@@ -40,6 +40,7 @@ numerotabla=NUMMER
 dinerotabla=GELD
 premiotabla=PREIS
 calculotabla=GESCHÄTZT
+nombrelargo= Name zu lang (maximal 16 Zeichen)
 entre5y60=ACHTUNG! Der Betrag muss ein Vielfaches von 5 sein, von 5 bis 60
 collanom=Gruppe:
 collaany=Jahr:

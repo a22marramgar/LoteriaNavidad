@@ -41,6 +41,7 @@ numerotabla=NUMERO
 dinerotabla=DINERO
 premiotabla=PREMIO
 calculotabla=CALCULO
+nombrelargo= Nombre demasiado largo(maximo 16 caracteres)
 entre5y60=¡ATENCIÓN! El importe debe ser un múltiplo de 5, desde 5 hasta 60
 collanom=Grupo: 
 collaany=Año: 
