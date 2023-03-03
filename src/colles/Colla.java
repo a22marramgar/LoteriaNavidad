@@ -34,6 +34,13 @@ public class Colla implements Serializable{
         this._importTotal = 0;
         this._lista = new ArrayList<>();
     }
+    /**
+     * Ordena los miembros
+     */
+    public void ordenarMiembrosPorNombre() {
+        Collections.sort(_lista, new MembreComparator());
+    }
+
 
     /**
      * Afegeix un membre a la lista de membres si no existeix el membre amb el
@@ -47,10 +54,11 @@ public class Colla implements Serializable{
     public boolean afegirMembre(String nomMembre, String numeroJugat, double importMembre) {
         boolean afegit = false;
         Membre nouMembre = new Membre(nomMembre, numeroJugat, importMembre);
-        if (!comprobarRepetido(nouMembre)) {
+        if (!comprobarRepetido(nouMembre)) {            
             this._lista.add(nouMembre);
             this._nombreMembres += 1;
             this._importTotal += importMembre;
+            ordenarMiembrosPorNombre();
             afegit = true;
         }
 
@@ -71,7 +79,7 @@ public class Colla implements Serializable{
                 this._importTotal -= this._lista.get(i).getImport();
                 this._lista.remove(this._lista.get(i));
                 this._nombreMembres -= 1;                
-            afegit = true;
+                afegit = true;
             }
         }
         return afegit;
