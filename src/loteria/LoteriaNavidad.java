@@ -100,6 +100,7 @@ public class LoteriaNavidad {
         eleccion = "./lang/" + listaDeIdiomas.get(elegido - 1)+".txt";
         return eleccion;
     }
+    
     /**
      * Para gestionar grupos, añadarilos y mostrarlos
      */
@@ -138,8 +139,8 @@ public class LoteriaNavidad {
         
     }
     /**
-     * 
-     * @param colla 
+     * Procedimiento para pedir datos de nuevo miembro
+     * @param colla el obnjeto colla
      */
     private static void pedirNuevoMiembro(Colla colla) {
         String nombre = llegirString(idioma.frase("nommiembro"));
@@ -172,6 +173,7 @@ public class LoteriaNavidad {
         String nummiembros = String.format("%05d", num);
         colla.borrarMembre(nombre, nummiembros);
     }
+    
     /**
      * Funcion para modificar el importe de un miembro
      * @param colla A modificar

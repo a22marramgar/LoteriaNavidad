@@ -160,6 +160,11 @@ public class Simulacion implements Serializable{
         }
         System.out.println("");
     }
+    
+    /**
+     * Procedimiento que añade una nueva lista a simulacion
+     * @param LoteriaAnyo Arraylist de la loteria
+     */
     public void NuevaLista(ArrayList<Premio> LoteriaAnyo){
         this._Lista=LoteriaAnyo;
     }

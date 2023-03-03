@@ -161,10 +161,11 @@ public class UIUtilities {
         System.out.print("\n\n\n\n\n\n\n\n\n\n");
         System.out.flush();
     }
-        /**
-     * Utilitza el menu
+     
+    /**
+     * Funcion para mostrar por pantalla un menu y elegir una opcion
      *
-     * @param opciones Las opciones que tendra el menu
+     * @param opciones Las opciones que tendra el menu en String
      * @return int opcio
      */
     public static int Menu(String ...opciones) {
@@ -178,6 +179,12 @@ public class UIUtilities {
         opcio = escollirOpcio(1, num,"Invalid");
         return opcio;
     }
+    
+    /**
+     * Funcion para mostrar por pantalla un menu y elegir una opcion
+     * @param datos ArrayList de Strings con las opciones
+     * @return la opcion
+     */
     public static int MenuAL(ArrayList<String> datos) {
         int opcio;
         int num=1;
@@ -190,6 +197,12 @@ public class UIUtilities {
         return opcio;
     }
     
+    /**
+     * Funcion para centrar texto al imprimir una tabla en rango determinado
+     * @param texto el texto añadir
+     * @param espacio el numero de espacios que tendra
+     * @return el texto ya formateado
+     */
     public static String CentrarTexto(String texto, int espacio){
         int espIzq = (espacio-texto.length())/2;
         texto = String.format("%"+(espIzq+texto.length())+"s", texto);
