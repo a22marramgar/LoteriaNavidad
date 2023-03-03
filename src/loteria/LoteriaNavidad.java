@@ -182,5 +182,4 @@ public class LoteriaNavidad {
         colla.ModImporteMembre(nombre, nummiembros, importe);
     }
     
-
 }
