@@ -47,3 +47,6 @@ collaany=Jahr:
 colladiners=Geld:
 collapremi=Preis:
 collamembres=Mitglieder:
+eliminarmiembro= Mitglied löschen
+modimportemiembro= Mitgliedsbetrag ändern
+eliminarcolla= Gruppe löschen

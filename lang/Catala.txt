@@ -48,3 +48,6 @@ collaany=Any:
 colladiners=Diners:
 collapremi=Premi:
 collamembres=Membres:
+eliminarmiembro= Eliminar membre
+modimportemiembro= Modificar import de membre
+eliminarcolla= Eliminar grup

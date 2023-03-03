@@ -109,7 +109,10 @@ public class LoteriaNavidad {
         
         int opcion=0;
         while (opcion < 5) {
-            opcion=Menu(idioma.frase("anyadirmiembro"),"eliminarmiembro","modimportemiembro",idioma.frase("mostrarcolla"), "eliminarcolla",idioma.frase("salir"));
+            opcion=Menu(idioma.frase("anyadirmiembro"),
+      idioma.frase("eliminarmiembro"),idioma.frase("modimportemiembro"),
+      idioma.frase("mostrarcolla"), idioma.frase("eliminarcolla"),
+      idioma.frase("salir"));
         switch(opcion){
             case 1:
                 pedirNuevoMiembro(colla);
@@ -180,9 +183,10 @@ public class LoteriaNavidad {
         System.out.print(idioma.frase("numeromiembro"));
         int num = escollirOpcio(0, 99999, idioma.frase("numeromiembro"));
         String nummiembros = String.format("%05d", num);
+        System.out.println(idioma.frase("entre5y60"));
         System.out.println(idioma.frase("importemiembro"));
         do{
-            System.out.println(idioma.frase("entre5y60"));
+            
             importe=escollirOpcio(1, 60, idioma.frase("entre5y60"));
         }while(importe%5!=0);   
         colla.ModImporteMembre(nombre, nummiembros, importe);

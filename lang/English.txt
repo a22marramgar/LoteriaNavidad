@@ -47,3 +47,6 @@ collaany=Year:
 colladiners=Money:
 collapremi=Prize:
 collamembres=Members:
+eliminarmiembro= Remove member
+modimportemiembro= Modify member amount
+eliminarcolla= Delete group
