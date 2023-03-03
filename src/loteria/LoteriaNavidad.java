@@ -23,7 +23,6 @@ public class LoteriaNavidad {
         sim = new Simulacion();
         NuevaSimulacion();
         int opcio = 0;
-        boolean creado = false;
 
         while (opcio != 5) {
             opcio = Menu(idioma.frase("iniciar"),

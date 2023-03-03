@@ -13,12 +13,16 @@ import java.util.ArrayList;
 import java.util.Properties;
 
 /**
- *
+ * 
  * @author ausias
  */
 public class Idiomas {
 
     private Properties _prop;
+    /**
+     * Constructor de Idiomas
+     * @param IdiomaElegido Idioma que se cargara en el Properties
+     */
     public Idiomas(String IdiomaElegido){
         this._prop=new Properties();
         this._prop=CargarIdiomas(IdiomaElegido);
@@ -41,7 +45,7 @@ public class Idiomas {
     /**
      * Para leer los archivos que existen en un carpeta
      * @param carpeta Donde buscaremos los archivos
-     * @return 
+     * @return Devuelve un ArrayList con los posibles idiomas a escoger
      */
     public static ArrayList<String> ArchivosEnCarpeta(final File carpeta) {
         ArrayList<String> listaidiomas = new ArrayList<>();
@@ -57,7 +61,7 @@ public class Idiomas {
     /**
      * Busca la frase correspondiente a la clave que le proporcionamos
      * @param clave con la que buscaremos la frase
-     * @return 
+     * @return La frase
      */
     public String frase(String clave) {
         String frase = this._prop.getProperty(clave);
