@@ -5,6 +5,7 @@ package colles;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 import loteria.Comprobacio;
 import loteria.LoteriaNavidad;
 import static loteria.LoteriaNavidad.idioma;
@@ -20,7 +21,7 @@ public class Colla implements Serializable{
     private int _anyJugat;
     private int _nombreMembres;
     private double _importTotal;
-    private ArrayList<Membre> _lista;
+    public ArrayList<Membre> _lista;
 
     /**
      * Constructor de Colla
@@ -56,7 +57,50 @@ public class Colla implements Serializable{
 
         return afegit;
     }
-    
+    /**
+     * Elimina un membre de la lista de membres
+     *
+     * @param nommembre
+     * @param numeroJugat
+     * @return true si s'ha afegit, false si està repetit
+     */
+    public boolean borrarMembre(String nommembre, String numeroJugat) {
+        boolean afegit = false;
+        for (int i = 0; i < this._lista.size(); i++) {
+            if(this._lista.get(i).getNom().equals(nommembre) && 
+                this._lista.get(i).getNumero().equals(numeroJugat)){
+                this._importTotal -= this._lista.get(i).getImport();
+                this._lista.remove(this._lista.get(i));
+                this._nombreMembres -= 1;                
+            afegit = true;
+            }
+        }
+        return afegit;
+    }
+    /**
+     * Modifica un membre de la lista de membres
+     *
+     * @param nomMembre String
+     * @param numeroJugat String
+     * @param importMembre double
+     * @return true si s'ha afegit, false si està repetit
+     */
+    public boolean ModImporteMembre(String nomMembre, String numeroJugat, double importMembre){
+        boolean afegit = false;
+        for (int i = 0; i < this._lista.size(); i++) {
+            Membre miembro = this._lista.get(i);
+            if(miembro.getNom().equals(nomMembre) && 
+                miembro.getNumero().equals(numeroJugat)){
+                this._importTotal -= miembro.getImport();
+                miembro.ModificarImport(importMembre);
+                this._lista.set(i, miembro);
+                this._importTotal += importMembre;
+                afegit = true;
+            }
+        }
+        return afegit;
+    }
+      
     /**
      * Comprova que no hagi un membre a la llista amb el mateix nom i numero de
      * loteria

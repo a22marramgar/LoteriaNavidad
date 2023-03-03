@@ -191,5 +191,10 @@ public class ArchivosBinarios {
         }
         return colla;
     }
+    public static void BorrarFichero(String nomFichero){
+        File fichero = new File(nomFichero);
+        
+        fichero.delete();
+    }
 
 }

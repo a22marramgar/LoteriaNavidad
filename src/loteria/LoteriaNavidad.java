@@ -140,14 +140,20 @@ public class LoteriaNavidad {
      */
     private static void pedirNuevoMiembro(Colla colla) {
         String nombre = llegirString(idioma.frase("nommiembro"));
+        while (nombre.length()> 16){
+            System.out.println(idioma.frase("nombrelargo"));
+            nombre = llegirString(idioma.frase("nommiembro"));
+        }       
+        
         System.out.print(idioma.frase("numeromiembro"));
         int num = escollirOpcio(0, 99999, idioma.frase("numeromiembro"));
         String nummiembros = String.format("%05d", num);
         double importe;
-        System.out.println(idioma.frase("importemiembro"));
+        System.out.println(idioma.frase("entre5y60"));
+        System.out.print(idioma.frase("importemiembro"));
         do{
-            System.out.println(idioma.frase("entre5y60"));
-            importe=escollirOpcio(1, 60, idioma.frase("entre5y60"));
+            
+            importe=escollirOpcio(5, 60, idioma.frase("entre5y60"));
         }while(importe%5!=0);
         
         colla.afegirMembre(nombre, nummiembros, importe);

@@ -10,7 +10,7 @@ import java.io.Serializable;
  * Emmagatzemarem a la classe Membre el nom, el numero, i l'import
  * @author Mario
  */
-class Membre implements Serializable{
+public class Membre implements Serializable{
 
     private String _nom;
     private String _numero;
@@ -22,7 +22,7 @@ class Membre implements Serializable{
      * @param numeroJugat String
      * @param importMembre double
      */
-    Membre(String nomMembre, String numeroJugat, double importMembre) {
+    public Membre(String nomMembre, String numeroJugat, double importMembre) {
         this._nom = nomMembre;
         this._numero = numeroJugat;
         this._import = importMembre;
@@ -50,6 +50,13 @@ class Membre implements Serializable{
      */
     public double getImport() {
         return this._import;
+    }
+    /**
+     * Modificar importe
+     * @param importe 
+     */
+    public void ModificarImport(double importe){
+        this._import=importe;
     }
     
 }
